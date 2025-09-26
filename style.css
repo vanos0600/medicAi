@@ -1,20 +1,19 @@
   :root {
-            --primary: #2C52FE;
-            --primary-dark: #1a3df0;
-            --primary-light: #4d94ff;
-            --text: #FFFFFF;
-            --text-secondary: #CBD5E1;
-            --dark: #0f172a;
-            --dark-lighter: #1E293B;
-            --dark-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            --dark-gradient-lighter: linear-gradient(135deg, #1E293B 0%, #334155 100%);
-            --gray: #94A3B8;
-            --light-gray: #334155;
-            --white: #ffffff;
-            --radius: 12px;
-            --shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
+    --primary: #2C52FE;
+    --primary-dark: #1a3df0;
+    --primary-light: #4d94ff;
+    --accent: #06B6D4;
+    --dark: #1F2937;
+    --text: #1A1A1A;
+    --text-secondary: #6B7280;
+    --background: #FFFFFF;
+    --background-light: #F7F8FA;
+    --background-grey: #EDEFF2;
+    --white: #FFFFFF;
+    --radius: 12px;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
 
         * {
             margin: 0;
@@ -27,9 +26,9 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Leelawadee', sans-serif;
             color: var(--text);
-            background: var(--dark-gradient);
+            background: white;
             line-height: 1.6;
             overflow-x: hidden;
         }
@@ -55,11 +54,12 @@
             top: 0;
             left: 0;
             width: 100%;
-            background: rgba(15, 23, 42, 0.95);
+            background: white;
             backdrop-filter: blur(10px);
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
             z-index: 1000;
-            transition: var(--transition);
+            transition: var(--transition)
+          
         }
 
         .header-container {
@@ -68,6 +68,7 @@
             align-items: center;
             padding: 20px 0;
         }
+
 
         .logo {
             display: flex;
@@ -98,11 +99,11 @@
         }
 
         nav ul li a {
-            color: var(--text-secondary);
+            color: vat(text-dark);
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 200;
             position: relative;
-            padding: 5px 0;
+            padding: 4px 0;
             transition: var(--transition);
         }
 
@@ -123,8 +124,13 @@
         }
 
         nav ul li a:hover {
-            color: var(--white);
+            color: var(--primary);
         }
+
+
+        .primary-color {
+        color: var(--primary); /* primary color for the word Astorre in the title */
+       }
 
         .header-buttons {
             display: flex;
@@ -136,7 +142,7 @@
             background: none;
             border: none;
             font-size: 1.5rem;
-            color: var(--white);
+            color: var(--primary);
             cursor: pointer;
         }
 
@@ -166,8 +172,8 @@
 
         .btn-secondary {
             background-color: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
+            color: var(--primary);
+            border: 2px solid var(--primary);
         }
 
         .btn-secondary:hover {
@@ -189,7 +195,7 @@
         /* Hero Section */
         .hero {
             padding: 180px 0 100px;
-            background: var(--dark-gradient);
+            background: white;
             position: relative;
             overflow: hidden;
             color: var(--white);
@@ -217,30 +223,31 @@
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 2.5rem;
             font-weight: 800;
             margin-bottom: 20px;
             background: linear-gradient(90deg, #ffffff, #e0e7ff);
             -webkit-background-clip: text;
             background-clip: text;
-            color: transparent;
+            color: black;
             line-height: 1.2;
         }
 
         .hero-tagline {
             font-size: 1.8rem;
             font-weight: 600;
-            color: var(--primary-light);
+            color: black;
             margin-bottom: 10px;
         }
 
         .hero-subtitle {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
+            font-size: 1rem;
+            color: gray;
             margin-bottom: 40px;
         }
 
         .hero-buttons {
+            font-size: 1.5rem;
             display: flex;
             justify-content: center;
             gap: 20px;
@@ -276,13 +283,13 @@
         .stat-number {
             font-size: 2.5rem;
             font-weight: 700;
-            color: var(--white);
+            color: var(--primary);
             margin-bottom: 10px;
         }
 
         .stat-label {
             font-size: 1rem;
-            color: var(--text-secondary);
+            color: var(--primary);
             font-weight: 500;
         }
 
@@ -303,6 +310,7 @@
             margin-bottom: 15px;
             position: relative;
             display: inline-block;
+            color: black;
         }
 
         .section-title h2:after {
@@ -333,7 +341,7 @@
         .problem-col, .solution-col {
             flex: 1;
             min-width: 300px;
-            background-color: var(--dark-lighter);
+            background-color: white;
             padding: 40px 30px;
             border-radius: var(--radius);
             box-shadow: var(--shadow);
@@ -353,6 +361,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            color: black;
         }
 
         .problem-list, .solution-list {
@@ -365,6 +374,7 @@
             align-items: flex-start;
             gap: 12px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: black;
         }
 
         .problem-list li:last-child, .solution-list li:last-child {
@@ -372,11 +382,11 @@
         }
 
         .problem-icon {
-            color: #ef4444;
+            color: black;
         }
 
         .solution-icon {
-            color: #10b981;
+            color: #25d2e9;
         }
 
         /* How it Works Section */
@@ -391,7 +401,7 @@
             flex: 1;
             min-width: 250px;
             max-width: 300px;
-            background-color: var(--dark-lighter);
+            background-color: white;
             padding: 40px 30px;
             border-radius: var(--radius);
             box-shadow: var(--shadow);
@@ -428,7 +438,17 @@
         .step-icon {
             position: relative;
             margin-bottom: 25px;
+            flex-grow: 1; /* Opcional: Hace que cada icono ocupe espacio por igual */
+            text-align: center;
         }
+
+        .iconos-fila-completa {
+           display: flex;             /* Coloca todos los hijos en una fila */
+           justify-content: space-around; /* O space-between, o space-evenly */
+           align-items: flex-start;   /* Alinea por arriba */
+           width: 100%;               /* Asegura que ocupe todo el ancho del contenedor */}
+
+    
 
         .step-icon i {
             font-size: 2.5rem;
@@ -457,6 +477,7 @@
             transition: var(--transition);
         }
 
+      
         .step:hover .step-number {
             transform: scale(1.1);
         }
@@ -464,11 +485,11 @@
         .step h3 {
             font-size: 1.3rem;
             margin-bottom: 15px;
-            color: var(--text);
+            color: black;
         }
 
         .step p {
-            color: var(--text-secondary);
+            color: black;
             font-size: 1rem;
         }
 
@@ -483,8 +504,8 @@
         .pillar-card {
             flex: 1;
             min-width: 200px;
-            max-width: 220px;
-            background-color: var(--dark-lighter);
+            max-width: 250px;
+            background-color: white;
             padding: 40px 30px;
             border-radius: var(--radius);
             box-shadow: var(--shadow);
@@ -521,13 +542,13 @@
         }
 
         .pillar-card h3 {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 10px;
         }
 
         .pillar-card p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
+            font-size: 1.3rem;
+            color: black;
         }
 
         /* Target Audience Section */
@@ -542,7 +563,7 @@
             flex: 1;
             min-width: 300px;
             max-width: 400px;
-            background-color: var(--dark-lighter);
+            background-color: white;
             padding: 40px 30px;
             border-radius: var(--radius);
             box-shadow: var(--shadow);
@@ -560,11 +581,11 @@
         .audience-card h3 {
             font-size: 1.3rem;
             margin-bottom: 15px;
-            color: var(--primary);
+            color: black;
         }
 
         .audience-card p {
-            color: var(--text-secondary);
+            color: black;
         }
 
         /* Comparison Table */
