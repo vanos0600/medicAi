@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Specialists | Astorre Polyclinic</title>
+<link rel ="stylesheet" href="ourSpecialist.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header id="header">
+    <div class="container">
+      <div class="header-container">
+        <a href="index.html" class="logo">
+          <img src="logo/image.png" alt="Astorre Polyclinic Logo">
+          <span class="primary-color">Astorre</span>
+        </a>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="doctor-detail.html" class="active">Doctor details</a></li>
+            <li><a href="search-results.html">Search</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="header-buttons">
+          <a href="#" class="btn btn-secondary">Login</a>
+          <a href="#" class="btn btn-primary">Register</a>
+        </div>
+        <button class="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Breadcrumb -->
+    <nav aria-label="Breadcrumb" class="breadcrumb">
+      <div class="container">
+        <a href="index.html">Home</a> › 
+        <span>Our Specialists</span>
+      </div>
+    </nav>
+
+    <!-- Specialists Section -->
+    <section class="section specialists-section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Our Specialists</h2>
+          <p>Meet the medical experts dedicated to your health and well-being.</p>
+        </div>
+
+        <div class="doctors-grid">
+          <!-- Doctor 1 -->
+          <div class="doctor-card">
+            <div class="doctor-card-content">
+              <div class="doctor-avatar">
+                <img src="https://via.placeholder.com/150x150" alt="Dr. Laura Smith">
+              </div>
+              <div class="doctor-info">
+                <h3>Dr. Laura Smith</h3>
+                <p class="specialty">Cardiologist</p>
+                <p class="experience">15 years experience</p>
+                <p class="description">Specialized in cardiovascular diseases and preventive cardiology with advanced diagnostic techniques.</p>
+                <a href="doctor-laura-smith.html" class="btn btn-primary">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Doctor 2 -->
+          <div class="doctor-card">
+            <div class="doctor-card-content">
+              <div class="doctor-avatar">
+                <img src="https://via.placeholder.com/150x150" alt="Dr. Michael Brown">
+              </div>
+              <div class="doctor-info">
+                <h3>Dr. Michael Brown</h3>
+                <p class="specialty">Neurologist</p>
+                <p class="experience">12 years experience</p>
+                <p class="description">Expert in neurological disorders, brain health, and innovative treatment approaches.</p>
+                <a href="doctor-michael-brown.html" class="btn btn-primary">View Details</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Doctor 3 -->
+          <div class="doctor-card">
+            <div class="doctor-card-content">
+              <div class="doctor-avatar">
+                <img src="https://via.placeholder.com/150x150" alt="Dr. Elena Kovacs">
+              </div>
+              <div class="doctor-info">
+                <h3>Dr. Elena Kovacs</h3>
+                <p class="specialty">Pediatrician</p>
+                <p class="experience">10 years experience</p>
+                <p class="description">Dedicated to children's health from infancy through adolescence with compassionate care.</p>
+                <a href="doctor-elena-kovacs.html" class="btn btn-primary">View Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>This is a student project created by Oskar David for the Web Design course, 2025.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+      const nav = document.querySelector('#header nav');
+      
+      mobileMenuBtn.addEventListener('click', function() {
+        nav.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html>
