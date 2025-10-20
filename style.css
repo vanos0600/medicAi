@@ -1,9 +1,9 @@
  
        :root {
-    --primary: #2C52FE;
-    --primary-dark: #1a3df0;
+    --primary: darkblue;
+    --primary-dark: rgb(3, 3, 180);
     --primary-light: #4d94ff;
-    --accent: #06B6D4;
+    --accent: rgb(1, 1, 34);
     --dark: #1F2937;
     --text: #1A1A1A;
     --text-secondary: #6B7280;
@@ -85,8 +85,6 @@
         .logo img {
             height: 30px;
             margin-right: 0px;
-           filter: brightness(0) saturate(100%) invert(21%) sepia(100%) saturate(7476%) hue-rotate(228deg) brightness(100%) contrast(101%);
-
            
         }
 
@@ -1714,7 +1712,7 @@ white-space: nowrap;
 
       /* Footer */
 footer {
-  background-color: #2C52FE;
+  background-color: darkblue;
   color: white;
   padding: 80px 0 0;
   text-align: left;
@@ -1727,6 +1725,8 @@ footer {
   margin-bottom: 40px;
   align-items: start;
 }
+
+
 
 .footer-about p {
   color: rgba(255, 255, 255, 0.8);

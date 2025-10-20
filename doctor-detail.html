@@ -3,20 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dr. Laura Smith - Cardiologist | Astorre Polyclinic</title>
+  <title>Our Specialists' Profiles | Astorre Polyclinic</title>
   <link rel="stylesheet" href="doctor-detail.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Note: Since this combines multiple detail sections into one file, 
+       you might need to adjust your 'doctor-detail.css' to handle the 
+       layout when multiple profiles are present on the same page. 
+       For example, adding a margin-bottom to the 'section doctor-detail' 
+       class to separate them clearly.
+    */
+  </style>
 </head>
 <body>
   <header class="header-simple">
     <div class="container">
       <a href="index.html" class="logo">
-        <img src="logo/image.png" alt="Astorre Polyclinic Logo">
+        <img src="logo/image.png" alt="Medical AI Polyclinic Logo">
       </a>
       <nav>
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="ourSpecialist.html">Our Specialists</a></li>
+          <li><a href="doctor-detail.html">Doctor Detail</a></li>
           <li><a href="patient-portal.html">Patient Portal</a></li>
           <li><a href="index.html#contact">Contact</a></li>
         </ul>
@@ -25,22 +34,23 @@
   </header>
 
   <main>
+    
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <div class="container">
         <a href="index.html">Home</a> › 
         <a href="ourSpecialist.html">Our Specialists</a> › 
-        <span>Dr. Laura Smith</span>
+        <span>All Doctor Profiles</span>
       </div>
     </nav>
-
-    <section class="section doctor-detail">
+    
+    <section class="section doctor-detail" id="dr-timur">
       <div class="container">
         <div class="doctor-profile">
           <div class="doctor-photo">
-            <img src="https://via.placeholder.com/400x400" alt="Dr. Laura Smith - Cardiologist">
+            <img src="/logo/dr2.png" alt="Dr. Timur Smith - Cardiologist">
           </div>
           <div class="doctor-info">
-            <h1>Dr. Laura Smith</h1>
+            <h1>Dr. Timur Smith</h1>
             <p><strong>Specialization:</strong> Cardiology</p>
             <p><strong>Experience:</strong> 15 years in cardiovascular medicine</p>
             <p><strong>About:</strong> Dr. Smith focuses on preventive cardiology, patient education, and AI-assisted diagnostics to detect conditions before they become critical. She is dedicated to providing comprehensive cardiac care with a personalized approach.</p>
@@ -73,6 +83,112 @@
                 <div>
                   <div class="label">Consultation</div>
                   <div class="value">30-45 minutes</div>
+                </div>
+              </div>
+            </div>
+            
+            <a href="index.html#contact" class="btn btn-primary">
+              <i class="fas fa-calendar-check"></i>
+              Book Appointment
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section doctor-detail" id="dr-karim">
+      <div class="container">
+        <div class="doctor-profile">
+          <div class="doctor-photo">
+            <img src="/logo/dr1.jpeg" alt="Dr. Karim - Cardiologist">
+          </div>
+          <div class="doctor-info">
+            <h1>Dr. Karim</h1>
+            <p><strong>Specialization:</strong> Cardiology</p>
+            <p><strong>Experience:</strong> 15 years experience</p>
+            <p><strong>About:</strong> Dr. Karim is specialized in **cardiovascular diseases** and preventive cardiology with **advanced diagnostic techniques**. His approach focuses on early intervention and comprehensive heart health management.</p>
+            <p><strong>Availability:</strong> Tuesday & Thursday, 10:00–18:00</p>
+            
+            <div class="doctor-meta">
+              <div class="meta-item">
+                <i class="fas fa-graduation-cap"></i>
+                <div>
+                  <div class="label">Education</div>
+                  <div class="value">MD, Cardiology</div>
+                </div>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-star"></i>
+                <div>
+                  <div class="label">Rating</div>
+                  <div class="value">4.7/5 (150 reviews)</div>
+                </div>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-clock"></i>
+                <div>
+                  <div class="label">Wait Time</div>
+                  <div class="value">≤ 20 minutes</div>
+                </div>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-stethoscope"></i>
+                <div>
+                  <div class="label">Consultation</div>
+                  <div class="value">30-40 minutes</div>
+                </div>
+              </div>
+            </div>
+            
+            <a href="index.html#contact" class="btn btn-primary">
+              <i class="fas fa-calendar-check"></i>
+              Book Appointment
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section doctor-detail" id="dr-alina">
+      <div class="container">
+        <div class="doctor-profile">
+          <div class="doctor-photo">
+            <img src="/logo/dr3.png" alt="Dr. Alina - Pediatrician">
+          </div>
+          <div class="doctor-info">
+            <h1>Dr. Alina</h1>
+            <p><strong>Specialization:</strong> Pediatrician</p>
+            <p><strong>Experience:</strong> 10 years experience</p>
+            <p><strong>About:</strong> Dr. Alina is dedicated to children's health from infancy through adolescence with compassionate and evidence-based care. She focuses on developmental milestones and parent education.</p>
+            <p><strong>Availability:</strong> Monday, Wednesday, Friday, 8:00–15:00</p>
+            
+            <div class="doctor-meta">
+              <div class="meta-item">
+                <i class="fas fa-graduation-cap"></i>
+                <div>
+                  <div class="label">Education</div>
+                  <div class="value">MD, Pediatrics</div>
+                </div>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-star"></i>
+                <div>
+                  <div class="label">Rating</div>
+                  <div class="value">5.0/5 (185 reviews)</div>
+                </div>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-clock"></i>
+                <div>
+                  <div class="label">Wait Time</div>
+                  <div class="value">≤ 10 minutes</div>
+                </div>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-stethoscope"></i>
+                <div>
+                  <div class="label">Consultation</div>
+                  <div class="value">20 minutes</div>
                 </div>
               </div>
             </div>
