@@ -1,68 +1,23 @@
-// --- Mobile Menu Logic ---
-const navLinks = document.querySelector('.nav-links');
-const openBtn = document.getElementById('mobile-menu-open');
-const closeBtn = document.getElementById('mobile-menu-close');
-const backdrop = document.getElementById('mobile-menu-backdrop');
 
-function toggleMenu() {
-    const isActive = navLinks.classList.toggle('active');
-    backdrop.classList.toggle('active');
-    // Ensure the close button is visible when the menu is active
-    if (isActive) {
-        document.body.appendChild(closeBtn);
-    }
-}
-
-// Event listeners for menu open, close, and backdrop click
-openBtn.addEventListener('click', toggleMenu);
-closeBtn.addEventListener('click', toggleMenu);
-backdrop.addEventListener('click', toggleMenu); 
-
-// Close menu when a navigation link is clicked
-navLinks.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener('click', () => {
-        if (navLinks.classList.contains('active')) {
-            toggleMenu();
-        }
-    });
-});
-
-
-// --- Language Dropdown Logic ---
-const langToggleDesktop = document.getElementById('language-toggle-desktop');
-const langToggleMobile = document.getElementById('language-toggle-mobile');
-
-// Unified function to handle dropdown toggle
-function setupDropdown(buttonElement) {
-    if (buttonElement) {
-        buttonElement.addEventListener('click', (e) => {
-            // Stop click from propagating up (which would close the mobile menu)
-            e.stopPropagation(); 
-            
-            // Toggle the 'active' class on the clicked button
-            buttonElement.classList.toggle('active');
-            
-            // Close the other dropdown if it's open
-            const otherButton = buttonElement === langToggleDesktop ? langToggleMobile : langToggleDesktop;
-            if (otherButton && otherButton.classList.contains('active')) {
-                otherButton.classList.remove('active');
-            }
+    
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const nav = document.getElementById('nav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.classList.toggle('active');
         });
-    }
-}
-
-setupDropdown(langToggleDesktop);
-setupDropdown(langToggleMobile);
-
-// Close dropdowns when clicking anywhere else on the document
-document.addEventListener('click', (e) => {
-    if (langToggleDesktop && !langToggleDesktop.contains(e.target)) {
-        langToggleDesktop.classList.remove('active');
-    }
-    if (langToggleMobile && !langToggleMobile.contains(e.target)) {
-        langToggleMobile.classList.remove('active');
-    }
-});
+        
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('nav ul li a');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                }
+            });
+        });
 
         // Cookie Banner
         const cookieBanner = document.getElementById('cookieBanner');
