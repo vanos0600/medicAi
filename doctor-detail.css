@@ -1,4 +1,4 @@
-       :root {
+:root {
     --primary: darkblue;
     --primary-dark: rgb(3, 3, 180);
     --primary-light: #4d94ff;
@@ -14,6 +14,7 @@
     --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
+
 /* ===== ESTILOS BASE ===== */
 * {
     margin: 0;
@@ -51,19 +52,23 @@ body {
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     transition: var(--transition);
+    min-height: 70px;
+    display: flex;
+    align-items: center;
 }
 
 .header-simple .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 0;
+    padding: 15px 20px;
 }
 
 .header-simple .logo {
     display: flex;
     align-items: center;
     transition: var(--transition);
+    flex-shrink: 0;
 }
 
 .header-simple .logo img {
@@ -78,6 +83,7 @@ body {
     flex: 1;
     display: flex;
     justify-content: center;
+    margin: 0 20px;
 }
 
 .header-simple nav ul {
@@ -116,32 +122,120 @@ body {
     color: var(--primary);
 }
 
+.header-simple .language-button {
+    margin-left: auto;
+    flex-shrink: 0;
+    position: relative;
+    background-color: var(--white);
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    border-radius: var(--radius);
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    user-select: none;
+}
+
+.header-simple .language-button:hover {
+    background-color: var(--primary-light);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(44, 82, 254, 0.2);
+}
+
+.header-simple .language-button .language-content {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 1rem;
+}
+
+.header-simple .language-button i {
+    font-size: 1rem;
+}
+
+/* Dropdown */
+.header-simple .language-dropdown {
+    position: absolute;
+    top: 110%;
+    right: 0;
+    background-color: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    min-width: 140px;
+    border: 1px solid var(--background-grey);
+    transition: var(--transition);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-5px);
+    z-index: 999;
+}
+
+.header-simple .language-button.active .language-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.header-simple .language-dropdown div {
+    padding: 10px 15px;
+    color: var(--text);
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+.header-simple .language-dropdown div:hover {
+    background-color: var(--primary-light);
+    color: white;
+}
+
 /* ===== BREADCRUMB ===== */
 .breadcrumb {
     background-color: var(--white);
-    padding: 15px 0;
+    padding: 20px 0;
     margin-bottom: 40px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    margin-top: 80px; /* Compensa el header fijo */
+    margin-top: 100px; /* Compensa el header fijo */
+    position: relative;
+    z-index: 999;
 }
 
 .breadcrumb .container {
-    font-size: 0.9rem;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .breadcrumb a {
     color: var(--text-secondary);
     text-decoration: none;
     transition: var(--transition);
+    font-weight: 500;
 }
 
 .breadcrumb a:hover {
     color: var(--primary);
+    transform: translateY(-1px);
 }
 
 .breadcrumb span {
     color: var(--text);
     font-weight: 600;
+}
+
+/* Separador del breadcrumb */
+.breadcrumb .container a:not(:first-child)::before {
+    content: '›';
+    margin-right: 8px;
+    color: var(--text-secondary);
 }
 
 /* ===== DOCTOR DETAIL SECTION ===== */
@@ -291,9 +385,15 @@ footer .container p {
 
 @media (max-width: 768px) {
     .header-simple .container {
-        flex-direction: column;
+        flex-wrap: wrap;
         gap: 15px;
-        padding: 10px 0;
+        padding: 10px 15px;
+    }
+    
+    .header-simple nav {
+        order: 3;
+        flex-basis: 100%;
+        margin: 0;
     }
     
     .header-simple nav ul {
@@ -302,13 +402,14 @@ footer .container p {
         justify-content: center;
     }
     
-    .header-simple nav ul li a {
-        font-size: 1rem;
-        padding: 5px 0;
+    .header-simple .language-button {
+        margin-left: 0;
+        order: 2;
     }
     
     .breadcrumb {
-        margin-top: 120px; /* Más espacio para header más alto en móvil */
+        margin-top: 140px; /* Más espacio para header más alto en móvil */
+        padding: 15px 0;
     }
     
     .doctor-profile {
@@ -333,17 +434,18 @@ footer .container p {
         font-size: 0.9rem;
     }
     
+    .breadcrumb {
+        margin-top: 160px; /* Aún más espacio en móviles pequeños */
+        padding: 12px 0;
+        font-size: 0.8rem;
+    }
+    
     .doctor-profile {
         padding: 20px;
     }
     
     .doctor-info h1 {
         font-size: 1.8rem;
-    }
-    
-    .breadcrumb {
-        font-size: 0.8rem;
-        margin-top: 140px;
     }
     
     .doctor-meta {

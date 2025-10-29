@@ -7,34 +7,44 @@
   <link rel="stylesheet" href="doctor-detail.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    /* Note: Since this combines multiple detail sections into one file, 
-       you might need to adjust your 'doctor-detail.css' to handle the 
-       layout when multiple profiles are present on the same page. 
-       For example, adding a margin-bottom to the 'section doctor-detail' 
-       class to separate them clearly.
-    */
+   
   </style>
 </head>
 <body>
   <header class="header-simple">
-    <div class="container">
-      <a href="index.html" class="logo">
-        <img src="logo/image.png" alt="Medical AI Polyclinic Logo">
-      </a>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="ourSpecialist.html">Our Specialists</a></li>
-          <li><a href="doctor-detail.html">Doctor Detail</a></li>
-          <li><a href="patient-portal.html">Patient Portal</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
-        </ul>
-      </nav>
+  <div class="container">
+    <a href="index.html" class="logo">
+      <img src="logo/image.png" alt="Medical AI Polyclinic Logo">
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="ourSpecialist.html">Our Specialists</a></li>
+        <li><a href="doctor-detail.html">Doctor Detail</a></li>
+        <li><a href="patient-portal.html">Patient Portal</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+    
+    <!-- Language button INSIDE the container -->
+    <div class="language-button" id="switchButton">
+
+      <div class="language-content">
+        <i class="fas fa-globe"></i> <span id="currentLang">EN</span>
+        <i class="fas fa-caret-down"></i>
+      </div>
+
+      <div class="language-dropdown" id="languageDropdown">
+        <div data-lang="en">English</div>
+        <div data-lang="cs">Čeština</div>
+      </div>
+
     </div>
-  </header>
+  </div>
+
+</header>
 
   <main>
-    
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <div class="container">
         <a href="index.html">Home</a> › 
@@ -205,8 +215,41 @@
 
   <footer>
     <div class="container">
-      <p>This is a student project created by Oskar David, Tsibirinko Yaroslav, Tsibirinko Artem and Sukhov Kiril 2025.</p>
+      <p>This is a student project created by Oskar Vanegas, Tsibirinko Yaroslav, Tsibirinko Artem and Sukhov Kiril 2025.</p>
     </div>
   </footer>
+
+
+  <script>
+// JavaScript para el botón de idioma
+document.addEventListener('DOMContentLoaded', function() {
+    const switchButton = document.getElementById('switchButton');
+    const languageDropdown = document.getElementById('languageDropdown');
+    const currentLang = document.getElementById('currentLang');
+    
+    // Toggle dropdown
+    switchButton.addEventListener('click', function(e) {
+        e.stopPropagation();
+        switchButton.classList.toggle('active');
+    });
+    
+    // Seleccionar idioma
+    languageDropdown.querySelectorAll('div[data-lang]').forEach(item => {
+        item.addEventListener('click', function() {
+            const lang = this.getAttribute('data-lang');
+            currentLang.textContent = lang.toUpperCase();
+            switchButton.classList.remove('active');
+            // Aquí puedes agregar la lógica para cambiar el idioma
+            console.log('Idioma cambiado a:', lang);
+        });
+    });
+    
+    // Cerrar dropdown al hacer click fuera
+    document.addEventListener('click', function() {
+        switchButton.classList.remove('active');
+    });
+});
+</script>
+
 </body>
 </html>

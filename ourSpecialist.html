@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Specialists | Astorre Polyclinic</title>
-<link rel ="stylesheet" href="ourSpecialist.css">
+  <title>Our Specialists | Medic AI  Polyclinic</title>
+  <link rel="stylesheet" href="ourSpecialist.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -14,7 +14,6 @@
       <div class="header-container">
         <a href="index.html" class="logo">
           <img src="logo/image.png" alt="Medic AI Polyclinic Logo">
-          
         </a>
         <nav>
           <ul class="nav-links">
@@ -25,6 +24,19 @@
             <li><a href="index.html#contact">Contact</a></li>
           </ul>
         </nav>
+
+        <!-- 🔵 Botón de idioma agregado aquí -->
+        <div class="language-button" id="switchButton">
+          <div class="language-content">
+            <i class="fas fa-globe"></i> <span id="currentLang">EN</span>
+            <i class="fas fa-caret-down"></i>
+          </div>
+          <div class="language-dropdown" id="languageDropdown">
+            <div data-lang="en">English</div>
+            <div data-lang="cs">Čeština</div>
+          </div>
+        </div>
+
         <div class="header-buttons">
           <a href="#" class="btn btn-secondary">Login</a>
           <a href="#" class="btn btn-primary">Register</a>
@@ -78,7 +90,7 @@
               </div>
               <div class="doctor-info">
                 <h3>Dr. Timur</h3>
-                <p class="specialty">Neurologist</p>
+                <p class="specialty">Gynecologist</p>
                 <p class="experience">12 years experience</p>
                 <p class="description">Expert in neurological disorders, brain health, and innovative treatment approaches.</p>
                 <a href="doctor-detail.html" class="btn btn-primary">View Details</a>
@@ -121,6 +133,35 @@
       
       mobileMenuBtn.addEventListener('click', function() {
         nav.classList.toggle('active');
+      });
+    });
+
+    // JavaScript para el botón de idioma
+    document.addEventListener('DOMContentLoaded', function() {
+      const switchButton = document.getElementById('switchButton');
+      const languageDropdown = document.getElementById('languageDropdown');
+      const currentLang = document.getElementById('currentLang');
+      
+      // Toggle dropdown
+      switchButton.addEventListener('click', function(e) {
+        e.stopPropagation();
+        switchButton.classList.toggle('active');
+      });
+      
+      // Seleccionar idioma
+      languageDropdown.querySelectorAll('div[data-lang]').forEach(item => {
+        item.addEventListener('click', function() {
+          const lang = this.getAttribute('data-lang');
+          currentLang.textContent = lang.toUpperCase();
+          switchButton.classList.remove('active');
+          // Aquí puedes agregar la lógica para cambiar el idioma
+          console.log('Idioma cambiado a:', lang);
+        });
+      });
+      
+      // Cerrar dropdown al hacer click fuera
+      document.addEventListener('click', function() {
+        switchButton.classList.remove('active');
       });
     });
   </script>

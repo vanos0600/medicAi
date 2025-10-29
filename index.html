@@ -23,39 +23,55 @@
         </div>
     </div>
 
-    <header id="header">
-        <div class="container header-container">
-            <a href="#" class="logo">
-                <img src="logo/image.png" alt="Medic AI Polyclinic Logo">
-            </a>
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
-                <i class="fas fa-bars"></i>
-            </button>
-            <nav id="nav">
-                <ul>
-                       <li><a href="index.html" class="active">Home</a></li>
-                       <li><a href="ourSpecialist.html">Our Specialists</a></li>
-                       <li><a href="doctor-detail.html">Doctors Details</a></li>
-                       <li><a href="patient-portal.html">Patient Portal</a></li>
-                       <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            
-            <div class="header-tools">
-                
-                <form action="search-results.html" method="GET" class="search-form">
-                    <label for="site-search" class="sr-only">Search the site</label>
-                    <input type="search" id="site-search" name="q" placeholder="Search Medic AI...">
-                    <button type="submit" class="search-btn" aria-label="Search">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </form>
-                <a href="patient-portal.html" class="btn btn-secondary btn-small">
-                    <i class="fas fa-user-circle"></i> Patient Portal
-                </a>
-            </div>
-            </div>
-    </header>
+
+
+<header id="header">
+  <div class="container header-container">
+    <a href="#" class="logo">
+      <img src="logo/image.png" alt="Medic AI Polyclinic Logo">
+    </a>
+
+    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <nav id="nav">
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="ourSpecialist.html">Our Specialists</a></li>
+        <li><a href="doctor-detail.html">Doctors Details</a></li>
+        <li><a href="patient-portal.html">Patient Portal</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-tools">
+      <form action="search-results.html" method="GET" class="search-form">
+        <label for="site-search" class="sr-only">Search the site</label>
+        <input type="search" id="site-search" name="q" placeholder="Search Medic AI...">
+        <button type="submit" class="search-btn" aria-label="Search">
+          <i class="fas fa-search"></i>
+        </button>
+      </form>
+      <a href="patient-portal.html" class="btn btn-secondary btn-small">
+        <i class="fas fa-user-circle"></i> Patient Portal
+      </a>
+
+      <!-- 🔵 Botón de idioma al extremo derecho -->
+      <div class="language-button" id="switchButton">
+        <div class="language-content">
+          <i class="fas fa-globe"></i> <span id="currentLang">EN</span>
+          <i class="fas fa-caret-down"></i>
+        </div>
+        <div class="language-dropdown" id="languageDropdown">
+          <div data-lang="en">English</div>
+          <div data-lang="cs">Čeština</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
 
     <section class="hero">
     <div class="container">
@@ -405,7 +421,7 @@
                    
                     <p>Integrated, AI-guided care for a healthier future.</p>
                     <div class="footer-contact">
-                        <p>Contact us: <a href="mailto:info@astorrepolyclinic.com" style="color: #fff; text-decoration: underline;">info@astorrepolyclinic.com</a></p>
+                        <p>Contact us: <a href="mailto:info@astorrepolyclinic.com" style="color: #fff; text-decoration: underline;">info@mediAipolyclinic.com</a></p>
                     </div>
                 </div>
                 <div class="footer-links">
@@ -435,6 +451,40 @@
     </footer>
 
     <script src="script.js"></script>
+    
+
+    
+    <script>
+// Simple language switch - minimal version
+document.addEventListener("DOMContentLoaded", function() {
+    const switchButton = document.getElementById("switchButton");
+    const languageDropdown = document.getElementById("languageDropdown");
+    const currentLang = document.getElementById("currentLang");
+    
+    // Toggle dropdown
+    switchButton.addEventListener('click', function(e) {
+        e.stopPropagation();
+        switchButton.classList.toggle('active');
+    });
+    
+    // Select language
+    languageDropdown.querySelectorAll('div[data-lang]').forEach(item => {
+        item.addEventListener('click', function() {
+            const lang = this.getAttribute('data-lang');
+            currentLang.textContent = lang.toUpperCase();
+            switchButton.classList.remove('active');
+            alert('Language changed to: ' + lang); // Simple feedback
+        });
+    });
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function() {
+        switchButton.classList.remove('active');
+    });
+});
+</script>
+   
+
 
 
 </body>

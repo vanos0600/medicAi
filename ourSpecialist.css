@@ -1,4 +1,4 @@
-       :root {
+ :root {
     --primary: darkblue;
     --primary-dark: rgb(3, 3, 180);
     --primary-light: #4d94ff;
@@ -52,6 +52,9 @@ body {
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
     z-index: 1000;
     transition: var(--transition);
+    min-height: 70px;
+    display: flex;
+    align-items: center;
 }
 
 .header-container {
@@ -59,6 +62,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 15px 0;
+    width: 100%;
 }
 
 .logo {
@@ -66,6 +70,7 @@ body {
     align-items: center;
     text-decoration: none;
     transition: var(--transition);
+    flex-shrink: 0;
 }
 
 .logo img {
@@ -87,6 +92,7 @@ nav {
     flex: 1;
     display: flex;
     justify-content: center;
+    margin: 0 20px;
 }
 
 .nav-links {
@@ -133,6 +139,7 @@ nav {
 .header-buttons {
     display: flex;
     gap: 15px;
+    flex-shrink: 0;
 }
 
 .mobile-menu-btn {
@@ -142,6 +149,81 @@ nav {
     font-size: 1.5rem;
     color: var(--primary);
     cursor: pointer;
+}
+
+/* 🔵 BOTÓN DE IDIOMA EN HEADER */
+.language-button {
+    margin-left: 20px;
+    flex-shrink: 0;
+    position: relative;
+    background-color: var(--white);
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    border-radius: var(--radius);
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    user-select: none;
+}
+
+.language-button:hover {
+    background-color: var(--primary-light);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(44, 82, 254, 0.2);
+}
+
+.language-button .language-content {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 1rem;
+}
+
+.language-button i {
+    font-size: 1rem;
+}
+
+/* Dropdown */
+.language-dropdown {
+    position: absolute;
+    top: 110%;
+    right: 0;
+    background-color: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    min-width: 140px;
+    border: 1px solid var(--background-grey);
+    transition: var(--transition);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-5px);
+    z-index: 999;
+}
+
+.language-button.active .language-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.language-dropdown div {
+    padding: 10px 15px;
+    color: var(--text);
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+.language-dropdown div:hover {
+    background-color: var(--primary-light);
+    color: white;
 }
 
 /* ===== BOTONES ===== */
@@ -186,14 +268,19 @@ nav {
 /* ===== BREADCRUMB ===== */
 .breadcrumb {
     background-color: var(--white);
-    padding: 15px 0;
+    padding: 20px 0;
     margin-bottom: 40px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    margin-top: 80px; /* Compensa el header fijo */
+    margin-top: 100px; /* Más espacio para compensar header fijo */
+    position: relative;
+    z-index: 999;
 }
 
 .breadcrumb .container {
-    font-size: 0.9rem;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .breadcrumb a {
@@ -345,7 +432,7 @@ footer .container p {
 
 @media (max-width: 768px) {
     .header-container {
-        flex-direction: column;
+        flex-wrap: wrap;
         gap: 15px;
         padding: 10px 0;
     }
@@ -364,6 +451,7 @@ footer .container p {
     nav {
         width: 100%;
         display: none;
+        margin: 0;
     }
     
     nav.active {
@@ -377,8 +465,14 @@ footer .container p {
         padding: 20px 0;
     }
     
+    .language-button {
+        margin-left: 0;
+        order: 2;
+    }
+    
     .breadcrumb {
-        margin-top: 120px;
+        margin-top: 140px;
+        padding: 15px 0;
     }
     
     .section-title h2 {
@@ -401,8 +495,9 @@ footer .container p {
     }
     
     .breadcrumb {
-        margin-top: 140px;
+        margin-top: 160px;
         font-size: 0.8rem;
+        padding: 12px 0;
     }
     
     .section-title h2 {
@@ -420,5 +515,10 @@ footer .container p {
     
     .doctor-info h3 {
         font-size: 1.3rem;
+    }
+    
+    .language-button {
+        padding: 6px 12px;
+        font-size: 0.9rem;
     }
 }
