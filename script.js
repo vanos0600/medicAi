@@ -165,3 +165,56 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// Enhanced search functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const searchContainer = document.querySelector('.search-container');
+    const searchForm = document.querySelector('.global-search-form');
+    const searchInput = document.querySelector('.global-search-form input[type="search"]');
+    
+    // Sticky search on scroll
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 100) {
+            searchContainer.classList.add('sticky');
+        } else {
+            searchContainer.classList.remove('sticky');
+        }
+    });
+    
+    // Search suggestions
+    searchInput.addEventListener('focus', function() {
+        // Show popular searches or recent searches
+        // You can implement AJAX search suggestions here
+    });
+    
+    // Loading state
+    searchForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        searchForm.classList.add('loading');
+        
+        // Simulate search delay
+        setTimeout(() => {
+            searchForm.classList.remove('loading');
+            // Perform actual search here
+        }, 1500);
+    });
+    
+    // Voice search simulation
+    const voiceBtn = document.createElement('button');
+    voiceBtn.className = 'voice-search-btn';
+    voiceBtn.innerHTML = '<i class="fas fa-microphone"></i>';
+    voiceBtn.setAttribute('aria-label', 'Voice Search');
+    voiceBtn.setAttribute('title', 'Voice Search');
+    
+    searchInput.parentNode.insertBefore(voiceBtn, searchInput.nextSibling);
+    
+    voiceBtn.addEventListener('click', function() {
+        if (!('webkitSpeechRecognition' in window)) {
+            alert('Voice search not supported in your browser');
+            return;
+        }
+        
+        voiceBtn.classList.toggle('listening');
+        // Implement voice recognition here
+    });
+});
