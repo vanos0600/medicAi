@@ -2191,9 +2191,9 @@ header .search-form .search-btn:hover {
     header .search-form {
         position: static;
         transform: none;
-        margin: 10px auto;
-        width: 90%;
-        max-width: 400px;
+        margin: 5px auto;
+        width: 50%;
+        max-width: 100px;
         justify-content: space-between;
         background: var(--background-grey);
         padding: 6px 12px;
