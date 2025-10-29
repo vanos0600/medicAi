@@ -2168,12 +2168,12 @@ header .search-form .search-btn:hover {
     }
     
     header .search-form input[type="search"] {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
     
     header .search-form .search-btn {
-        width: 34px;
-        height: 34px;
+        width: 104px;
+        height: 54px;
     }
     
     /* Adjust paragraph size for tablet */
