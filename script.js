@@ -104,3 +104,64 @@
             observer.observe(element);
         });
     
+        // Mobile menu functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    const mobileBackdrop = document.createElement('div');
+    const mobileCloseBtn = document.createElement('button');
+    
+    // Create mobile menu backdrop
+    mobileBackdrop.className = 'mobile-menu-backdrop';
+    document.body.appendChild(mobileBackdrop);
+    
+    // Create close button for mobile menu
+    mobileCloseBtn.className = 'mobile-close-btn';
+    mobileCloseBtn.innerHTML = '✕';
+    navLinks.appendChild(mobileCloseBtn);
+    
+    // Toggle mobile menu
+    function toggleMobileMenu() {
+        navLinks.classList.toggle('active');
+        mobileBackdrop.classList.toggle('active');
+        document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+    }
+    
+    // Event listeners
+    mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+    mobileCloseBtn.addEventListener('click', toggleMobileMenu);
+    mobileBackdrop.addEventListener('click', toggleMobileMenu);
+    
+    // Close mobile menu when clicking on links (optional)
+    const navItems = document.querySelectorAll('nav ul li a');
+    navItems.forEach(item => {
+        item.addEventListener('click', function() {
+            if (window.innerWidth <= 768) {
+                toggleMobileMenu();
+            }
+        });
+    });
+    
+    // Language dropdown functionality
+    const languageButton = document.querySelector('.language-button');
+    if (languageButton) {
+        languageButton.addEventListener('click', function(e) {
+            e.stopPropagation();
+            this.classList.toggle('active');
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function() {
+            languageButton.classList.remove('active');
+        });
+    }
+    
+    // Handle window resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            navLinks.classList.remove('active');
+            mobileBackdrop.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+});
