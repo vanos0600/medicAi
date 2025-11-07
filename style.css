@@ -1980,7 +1980,7 @@ footer {
 #nav.mobile-active ul li a {
     display: block;
     padding: 15px 20px;
-    color: #333 !important; /* <-- ¡AÑADE EL !IMPORTANT! */
+    color: #333 !important;/* <-- ¡AÑADE EL !IMPORTANT! */
     font-weight: 600;
     font-size: 1.1rem;
     border-bottom: 1px solid var(--background-grey);
