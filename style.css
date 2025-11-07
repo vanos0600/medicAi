@@ -1986,12 +1986,17 @@ footer {
         text-align: left;
     }
 
-    #nav.mobile-active ul li a:hover,
-    #nav.mobile-active ul li a.active {
-        background-color: var(--primary-light);
-        color: white;
-        border-bottom-color: var(--primary-light);
-    }
+  #nav.mobile-active ul li a {
+    display: block;
+    padding: 15px 20px;
+    color: #333; /* <-- SOLUCIÓN: Color oscuro fijo */
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-bottom: 1px solid var(--background-grey);
+    transition: all 0.3s ease;
+    width: 100%;
+    text-align: left;
+}
 
 /* Create mobile header tools that appear below navigation */
 #nav.mobile-active::after {
