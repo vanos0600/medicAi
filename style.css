@@ -1975,10 +1975,12 @@ footer {
     }
 
    /* ESTA ES LA SOLUCIÓN */
+/* Busca esta regla en tu CSS (dentro del @media) */
+
 #nav.mobile-active ul li a {
     display: block;
     padding: 15px 20px;
-    color: #333; /* <-- ¡ARREGLADO! (un gris oscuro) */
+    color: #333 !important; /* <-- ¡AÑADE EL !IMPORTANT! */
     font-weight: 600;
     font-size: 1.1rem;
     border-bottom: 1px solid var(--background-grey);
@@ -1986,7 +1988,6 @@ footer {
     width: 100%;
     text-align: left;
 }
-
 /* Create mobile header tools that appear below navigation */
 #nav.mobile-active::after {
     content: '';
