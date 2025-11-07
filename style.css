@@ -2037,7 +2037,7 @@ footer {
     .header-tools {
         display: flex !important;
     }
-}
+} 
 
 /* Adjust hero padding for fixed header on mobile */
 @media (max-width: 768px) {
