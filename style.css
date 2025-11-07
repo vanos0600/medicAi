@@ -1989,13 +1989,8 @@ footer {
 
 
 /* Create mobile header tools that appear below navigation */
-#nav.mobile-active::after {
-    content: '';
-    display: block;
-    padding: 20px;
-    background: white;
-    border-top: 1px solid var(--background-grey);
-}
+/* Create mobile header tools that appear below navigation */
+
     /* Style the existing header-tools to show in mobile menu */
     #nav.mobile-active ~ .header-tools {
         display: none !important;
