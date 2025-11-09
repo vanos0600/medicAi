@@ -1886,7 +1886,7 @@ footer {
  background-color: var(--accent);
 }
 /* ===== MOBILE RESPONSIVENESS ===== */
-/* ===== HEADER RESPONSIVENESS - NO HTML CHANGES ===== */
+
 
 /* Ensure mobile menu button is hidden by default on desktop */
 .mobile-menu-btn {
@@ -1901,11 +1901,31 @@ footer {
     align-items: center;
     justify-content: center;
     border-radius: 4px;
-    transition: background-color 0.3s ease;
+    transition: var(--transition);
+    z-index: 1002;
 }
 
 .mobile-menu-btn:hover {
     background-color: var(--background-grey);
+    transform: scale(1.05);
+}
+
+/* Enhanced mobile menu backdrop */
+.mobile-menu-backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 /* Tablet and Mobile (768px and below) */
@@ -1919,6 +1939,12 @@ footer {
         background: white;
         box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         z-index: 1000;
+        animation: slideDown 0.3s ease;
+    }
+
+    @keyframes slideDown {
+        from { transform: translateY(-100%); }
+        to { transform: translateY(0); }
     }
 
     .header-container {
@@ -1933,13 +1959,23 @@ footer {
     .logo img {
         height: 25px;
         width: auto;
+        transition: var(--transition);
     }
 
-    /* Show mobile menu button */
+    /* Show mobile menu button with improved styling */
     .mobile-menu-btn {
         display: flex !important;
         order: 2;
         margin-left: auto;
+        background: var(--primary);
+        color: white;
+        border-radius: 6px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+
+    .mobile-menu-btn:hover {
+        background: var(--primary-dark);
+        transform: scale(1.05);
     }
 
     /* Hide desktop navigation and tools */
@@ -1948,18 +1984,27 @@ footer {
         display: none !important;
     }
 
-    /* Mobile navigation menu - positioned absolutely */
+    /* Enhanced mobile navigation menu */
     #nav.mobile-active {
         display: block !important;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 85%;
+        max-width: 320px;
+        height: 100vh;
         background: white;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        box-shadow: -5px 0 25px rgba(0,0,0,0.15);
         z-index: 1001;
-        padding: 0;
+        padding: 80px 0 20px;
         margin: 0;
+        animation: slideInRight 0.3s ease;
+        overflow-y: auto;
+    }
+
+    @keyframes slideInRight {
+        from { transform: translateX(100%); }
+        to { transform: translateX(0); }
     }
 
     #nav.mobile-active ul {
@@ -1967,41 +2012,89 @@ footer {
         gap: 0;
         padding: 0;
         margin: 0;
+        list-style: none;
     }
 
     #nav.mobile-active ul li {
         margin: 0;
         width: 100%;
+        border-bottom: 1px solid var(--background-grey);
+        transition: var(--transition);
     }
 
-   /* ESTA ES LA SOLUCIÓN */
-/* Busca esta regla en tu CSS (dentro del @media) */
-
-#nav.mobile-active ul li a {
-    display: block;
-    padding: 15px 20px;
-    color: #333 !important;/* <-- ¡AÑADE EL !IMPORTANT! */
-    font-weight: 600;
-    font-size: 1.1rem;
-    border-bottom: 1px solid var(--background-grey);
-    transition: all 0.3s ease;
-    width: 100%;
-    text-align: left;
-}
-/* Create mobile header tools that appear below navigation */
-#nav.mobile-active::after {
-    content: '';
-    display: block;
-    padding: 20px;
-    background: white;
-    border-top: 1px solid var(--background-grey);
-}
-
-    #nav.mobile-active ~ .header-tools {
-        display: none !important;
+    #nav.mobile-active ul li:hover {
+        background-color: var(--background-light);
     }
 
-    /* Use JavaScript to move header-tools into mobile menu visually */
+    /* SOLUCIÓN MEJORADA - Enlaces perfectamente visibles */
+    #nav.mobile-active ul li a {
+        display: block !important;
+        padding: 18px 25px !important;
+        color: #333 !important;
+        font-weight: 600 !important;
+        font-size: 1.1rem !important;
+        text-decoration: none !important;
+        width: 100% !important;
+        text-align: left !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transition: var(--transition);
+        border-left: 4px solid transparent;
+    }
+
+    #nav.mobile-active ul li a:hover,
+    #nav.mobile-active ul li a.active {
+        background-color: var(--primary-light);
+        color: var(--primary) !important;
+        border-left-color: var(--primary);
+        transform: translateX(5px);
+    }
+
+    /* Mobile header tools integration */
+    #nav.mobile-active .mobile-header-tools {
+        padding: 25px;
+        border-top: 1px solid var(--background-grey);
+        background: var(--background-light);
+    }
+
+    #nav.mobile-active .mobile-header-tools .btn {
+        width: 100%;
+        margin-bottom: 12px;
+        justify-content: center;
+        padding: 12px;
+        font-size: 1rem;
+    }
+
+    #nav.mobile-active .mobile-header-tools .language-button {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 12px;
+    }
+
+    /* Close button for mobile menu */
+    .mobile-menu-close {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--text);
+        cursor: pointer;
+        z-index: 1003;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: var(--transition);
+    }
+
+    .mobile-menu-close:hover {
+        background-color: var(--background-grey);
+        transform: rotate(90deg);
+    }
 }
 
 /* Small Mobile (480px and below) */
@@ -2019,6 +2112,20 @@ footer {
         height: 36px;
         font-size: 1.3rem;
     }
+
+    #nav.mobile-active {
+        width: 90%;
+        padding: 70px 0 15px;
+    }
+
+    #nav.mobile-active ul li a {
+        padding: 16px 20px !important;
+        font-size: 1rem !important;
+    }
+
+    #nav.mobile-active .mobile-header-tools {
+        padding: 20px;
+    }
 }
 
 /* Ensure desktop view on larger screens */
@@ -2031,6 +2138,10 @@ footer {
     .header-tools {
         display: flex !important;
     }
+
+    .mobile-menu-backdrop {
+        display: none !important;
+    }
 } 
 
 /* Adjust hero padding for fixed header on mobile */
@@ -2039,12 +2150,20 @@ footer {
         padding: 120px 0 40px;
         margin-top: 70px;
     }
+
+    .breadcrumb {
+        margin-top: 120px;
+    }
 }
 
 @media (max-width: 480px) {
     .hero {
         padding: 100px 0 30px;
         margin-top: 60px;
+    }
+
+    .breadcrumb {
+        margin-top: 140px;
     }
 }
 
@@ -2053,18 +2172,47 @@ body.mobile-menu-open {
     overflow: hidden;
 }
 
-/* Enhanced mobile menu backdrop */
-.mobile-menu-backdrop {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.5);
-    z-index: 999;
-}
-
 body.mobile-menu-open .mobile-menu-backdrop {
     display: block;
+}
+
+/* Smooth transitions for all interactive elements */
+#nav.mobile-active,
+.mobile-menu-backdrop,
+.mobile-menu-btn {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Enhanced focus states for accessibility */
+.mobile-menu-btn:focus,
+#nav.mobile-active a:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Loading state for menu */
+#nav.mobile-active.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    #nav.mobile-active {
+        border: 2px solid var(--text);
+    }
+    
+    #nav.mobile-active ul li a {
+        border-left-width: 6px;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .mobile-menu-btn,
+    #nav.mobile-active,
+    .mobile-menu-backdrop {
+        transition: none;
+        animation: none;
+    }
 }
