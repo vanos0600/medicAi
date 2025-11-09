@@ -8,34 +8,40 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <header class="header-simple">
+ <header class="header-simple">
     <div class="container">
-      <a href="index.html" class="logo">
-        <img src="logo/image.png" alt="Medic AI Polyclinic Logo">
-      </a>
-      <nav>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="ourSpecialist.html">Our Specialists</a></li>
-          <li><a href="doctor-detail.html">Doctor Detail</a></li>
-          <li><a href="patient-portal.html">Patient Portal</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
-        </ul>
-      </nav>
-      
-      <!-- 🔵 Botón de idioma agregado aquí -->
-      <div class="language-button" id="switchButton">
-        <div class="language-content">
-          <i class="fas fa-globe"></i> <span id="currentLang">EN</span>
-          <i class="fas fa-caret-down"></i>
+        <a href="index.html" class="logo">
+            <img src="logo/image.png" alt="Medic AI Polyclinic Logo">
+        </a>
+        
+        <!-- Botón hamburguesa agregado aquí -->
+        <button class="mobile-menu-btn" aria-label="Toggle navigation menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="ourSpecialist.html">Our Specialists</a></li>
+                <li><a href="doctor-detail.html">Doctor Detail</a></li>
+                <li><a href="patient-portal.html" class="active">Patient Portal</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <!-- 🔵 Botón de idioma agregado aquí -->
+        <div class="language-button" id="switchButton">
+            <div class="language-content">
+                <i class="fas fa-globe"></i> <span id="currentLang">EN</span>
+                <i class="fas fa-caret-down"></i>
+            </div>
+            <div class="language-dropdown" id="languageDropdown">
+                <div data-lang="en">English</div>
+                <div data-lang="cs">Čeština</div>
+            </div>
         </div>
-        <div class="language-dropdown" id="languageDropdown">
-          <div data-lang="en">English</div>
-          <div data-lang="cs">Čeština</div>
-        </div>
-      </div>
     </div>
-  </header>
+</header>
 
   <main>
     <!-- Breadcrumb -->
@@ -71,34 +77,153 @@
   </footer>
 
   <script>
-    // JavaScript para el botón de idioma
-    document.addEventListener('DOMContentLoaded', function() {
-      const switchButton = document.getElementById('switchButton');
-      const languageDropdown = document.getElementById('languageDropdown');
-      const currentLang = document.getElementById('currentLang');
-      
-      // Toggle dropdown
-      switchButton.addEventListener('click', function(e) {
-        e.stopPropagation();
-        switchButton.classList.toggle('active');
-      });
-      
-      // Seleccionar idioma
-      languageDropdown.querySelectorAll('div[data-lang]').forEach(item => {
-        item.addEventListener('click', function() {
-          const lang = this.getAttribute('data-lang');
-          currentLang.textContent = lang.toUpperCase();
-          switchButton.classList.remove('active');
-          // Aquí puedes agregar la lógica para cambiar el idioma
-          console.log('Idioma cambiado a:', lang);
+    // Mobile menu functionality mejorada
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const nav = document.querySelector('.header-simple nav');
+    const body = document.body;
+    
+    // Crear backdrop si no existe
+    let backdrop = document.querySelector('.mobile-menu-backdrop');
+    if (!backdrop) {
+        backdrop = document.createElement('div');
+        backdrop.className = 'mobile-menu-backdrop';
+        document.body.appendChild(backdrop);
+    }
+    
+    if (mobileMenuBtn && nav) {
+        mobileMenuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            nav.classList.toggle('active');
+            body.classList.toggle('mobile-menu-open');
+            
+            // Cambiar ícono
+            const icon = mobileMenuBtn.querySelector('i');
+            if (nav.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
         });
-      });
-      
-      // Cerrar dropdown al hacer click fuera
-      document.addEventListener('click', function() {
-        switchButton.classList.remove('active');
-      });
-    });
+        
+        // Cerrar menú al hacer clic en backdrop
+        backdrop.addEventListener('click', function() {
+            nav.classList.remove('active');
+            body.classList.remove('mobile-menu-open');
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        });
+        
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('.header-simple nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                nav.classList.remove('active');
+                body.classList.remove('mobile-menu-open');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+        
+        // Cerrar menú con tecla Escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && nav.classList.contains('active')) {
+                nav.classList.remove('active');
+                body.classList.remove('mobile-menu-open');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+    }
+    
+    // JavaScript para el botón de idioma (existente)
+    const switchButton = document.getElementById('switchButton');
+    const languageDropdown = document.getElementById('languageDropdown');
+    const currentLang = document.getElementById('currentLang');
+    
+    if (switchButton) {
+        switchButton.addEventListener('click', function(e) {
+            e.stopPropagation();
+            switchButton.classList.toggle('active');
+        });
+        
+        languageDropdown.querySelectorAll('div[data-lang]').forEach(item => {
+            item.addEventListener('click', function() {
+                const lang = this.getAttribute('data-lang');
+                currentLang.textContent = lang.toUpperCase();
+                switchButton.classList.remove('active');
+                console.log('Idioma cambiado a:', lang);
+            });
+        });
+        
+        document.addEventListener('click', function() {
+            switchButton.classList.remove('active');
+        });
+    }
+
+    // Validación del formulario de login
+    const loginForm = document.querySelector('.portal-login');
+    if (loginForm) {
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email');
+            const password = document.getElementById('password');
+            
+            let isValid = true;
+            
+            // Resetear estilos de error
+            [email, password].forEach(input => {
+                input.style.borderColor = '';
+            });
+            
+            // Validar email
+            if (!email.value.trim()) {
+                email.style.borderColor = 'red';
+                isValid = false;
+                alert('Please enter your email address.');
+                return;
+            } else {
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailPattern.test(email.value)) {
+                    email.style.borderColor = 'red';
+                    isValid = false;
+                    alert('Please enter a valid email address.');
+                    return;
+                }
+            }
+            
+            // Validar password
+            if (!password.value.trim()) {
+                password.style.borderColor = 'red';
+                isValid = false;
+                alert('Please enter your password.');
+                return;
+            }
+            
+            if (isValid) {
+                // Simular login exitoso
+                const submitBtn = loginForm.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Logging in...';
+                submitBtn.disabled = true;
+                
+                setTimeout(() => {
+                    alert('Login successful! Redirecting to your dashboard...');
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    // Aquí iría la redirección real
+                    // window.location.href = 'patient-dashboard.html';
+                }, 1500);
+            }
+        });
+    }
+});
   </script>
 </body>
 </html>
