@@ -366,93 +366,79 @@ footer .container p {
 }
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 992px) {
-    .doctor-profile {
-        flex-direction: column;
-        gap: 30px;
-    }
-    
-    .doctor-photo {
-        flex: 0 0 auto;
-        max-width: 300px;
-        margin: 0 auto;
-    }
-    
-    .header-simple nav ul {
-        gap: 25px;
-    }
+/* ===== MOBILE MENU BUTTON ===== */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--primary);
+    cursor: pointer;
+    padding: 8px;
+    z-index: 1002;
 }
 
+/* ===== RESPONSIVE STYLES ===== */
 @media (max-width: 768px) {
     .header-simple .container {
         flex-wrap: wrap;
         gap: 15px;
         padding: 10px 15px;
     }
-    
+
+    .mobile-menu-btn {
+        display: block;
+        order: 2; /* Adjust the order to place it appropriately */
+        margin-left: auto;
+    }
+
     .header-simple nav {
+        display: none;
         order: 3;
         flex-basis: 100%;
         margin: 0;
     }
-    
-    .header-simple nav ul {
-        gap: 20px;
-        flex-wrap: wrap;
-        justify-content: center;
+
+    .header-simple nav.active {
+        display: block;
     }
-    
+
+    .header-simple nav ul {
+        flex-direction: column;
+        gap: 0;
+        background: var(--white);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 10px 0;
+    }
+
+    .header-simple nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .header-simple nav ul li a {
+        display: block;
+        padding: 15px 20px;
+        border-bottom: 1px solid var(--background-grey);
+    }
+
+    .header-simple nav ul li:last-child a {
+        border-bottom: none;
+    }
+
     .header-simple .language-button {
         margin-left: 0;
-        order: 2;
+        order: 1; /* Adjust the order if needed */
     }
-    
+
     .breadcrumb {
-        margin-top: 140px; /* Más espacio para header más alto en móvil */
-        padding: 15px 0;
-    }
-    
-    .doctor-profile {
-        padding: 25px;
-    }
-    
-    .doctor-info h1 {
-        font-size: 2rem;
-    }
-    
-    .doctor-meta {
-        grid-template-columns: 1fr;
+        margin-top: 140px; /* Adjust for mobile header */
     }
 }
 
 @media (max-width: 480px) {
-    .header-simple nav ul {
-        gap: 15px;
-    }
-    
-    .header-simple nav ul li a {
-        font-size: 0.9rem;
-    }
-    
     .breadcrumb {
-        margin-top: 160px; /* Aún más espacio en móviles pequeños */
-        padding: 12px 0;
-        font-size: 0.8rem;
-    }
-    
-    .doctor-profile {
-        padding: 20px;
-    }
-    
-    .doctor-info h1 {
-        font-size: 1.8rem;
-    }
-    
-    .doctor-meta {
-        gap: 15px;
-    }
-    
-    .meta-item {
-        padding: 12px;
+        margin-top: 160px; /* Adjust for smaller devices */
     }
 }

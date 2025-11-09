@@ -221,33 +221,24 @@
 
 
   <script>
-// JavaScript para el botón de idioma
+// Mobile menu functionality
 document.addEventListener('DOMContentLoaded', function() {
-    const switchButton = document.getElementById('switchButton');
-    const languageDropdown = document.getElementById('languageDropdown');
-    const currentLang = document.getElementById('currentLang');
-    
-    // Toggle dropdown
-    switchButton.addEventListener('click', function(e) {
-        e.stopPropagation();
-        switchButton.classList.toggle('active');
-    });
-    
-    // Seleccionar idioma
-    languageDropdown.querySelectorAll('div[data-lang]').forEach(item => {
-        item.addEventListener('click', function() {
-            const lang = this.getAttribute('data-lang');
-            currentLang.textContent = lang.toUpperCase();
-            switchButton.classList.remove('active');
-            // Aquí puedes agregar la lógica para cambiar el idioma
-            console.log('Idioma cambiado a:', lang);
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const nav = document.querySelector('.header-simple nav');
+
+    if (mobileMenuBtn && nav) {
+        mobileMenuBtn.addEventListener('click', function() {
+            nav.classList.toggle('active');
         });
-    });
-    
-    // Cerrar dropdown al hacer click fuera
-    document.addEventListener('click', function() {
-        switchButton.classList.remove('active');
-    });
+
+        // Close menu when a link is clicked
+        const navLinks = document.querySelectorAll('.header-simple nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+            });
+        });
+    }
 });
 </script>
 
