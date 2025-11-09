@@ -417,68 +417,135 @@ footer .container p {
     font-size: 1rem;
     color: rgba(255, 255, 255, 0.8);
 }
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 992px) {
-    .doctors-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 25px;
-    }
-    
-    .nav-links {
-        gap: 25px;
-    }
-}
-
+/* ===== HEADER RESPONSIVE CORREGIDO ===== */
 @media (max-width: 768px) {
     .header-container {
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         gap: 15px;
         padding: 10px 0;
+        position: relative;
     }
     
+    /* Ocultar navegación y botones en móvil */
+    nav,
     .header-buttons {
-        display: none;
+        display: none !important;
     }
     
+    /* Mostrar botón hamburguesa */
     .mobile-menu-btn {
-        display: block;
-        position: absolute;
-        top: 20px;
-        right: 20px;
+        display: flex !important;
+        background: var(--primary);
+        color: var(--white);
+        border: none;
+        font-size: 1.3rem;
+        cursor: pointer;
+        width: 44px;
+        height: 44px;
+        border-radius: var(--radius);
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition);
+        box-shadow: 0 4px 12px rgba(0, 0, 139, 0.2);
+        order: 3;
+        margin-left: auto;
     }
     
-    nav {
-        width: 100%;
-        display: none;
-        margin: 0;
+    .mobile-menu-btn:hover {
+        background: var(--primary-dark);
+        transform: scale(1.05);
     }
     
+    /* Menú móvil activo */
     nav.active {
-        display: block;
+        display: block !important;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: var(--white);
+        z-index: 1000;
+        padding: 20px;
+        overflow-y: auto;
+        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
+        animation: slideDown 0.3s ease;
     }
     
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    /* Estilos para la lista del menú móvil */
     .nav-links {
         flex-direction: column;
-        gap: 15px;
-        text-align: center;
-        padding: 20px 0;
+        gap: 0;
+        background: var(--white);
+        border-radius: var(--radius);
+        padding: 0;
     }
     
+    .nav-links li {
+        width: 100%;
+        border-bottom: 1px solid var(--background-grey);
+    }
+    
+    .nav-links li:last-child {
+        border-bottom: none;
+    }
+    
+    /* ENLACES VISIBLES Y CLAROS */
+    .nav-links li a {
+        display: block !important;
+        padding: 18px 20px !important;
+        color: var(--text) !important;
+        font-weight: 600 !important;
+        font-size: 1.1rem !important;
+        text-decoration: none !important;
+        width: 100% !important;
+        text-align: left !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transition: var(--transition);
+        border-left: 4px solid transparent;
+    }
+    
+    .nav-links li a:hover,
+    .nav-links li a.active {
+        background-color: var(--background-light);
+        color: var(--primary) !important;
+        border-left-color: var(--primary);
+        transform: translateX(5px);
+    }
+    
+    /* Remover efectos de subrayado en móvil */
+    .nav-links li a:after {
+        display: none !important;
+    }
+    
+    /* Botón de idioma visible en móvil */
     .language-button {
         margin-left: 0;
         order: 2;
+        min-width: 100px;
+        padding: 8px 12px;
+        font-size: 0.9rem;
     }
     
+    /* Ajustar breadcrumb para header móvil */
     .breadcrumb {
-        margin-top: 140px;
+        margin-top: 120px;
         padding: 15px 0;
     }
     
-    .section-title h2 {
-        font-size: 2rem;
-    }
-    
+    /* Ajustes de grid para móvil */
     .doctors-grid {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -487,17 +554,49 @@ footer .container p {
     .doctor-card-content {
         padding: 25px;
     }
+    
+    .section-title h2 {
+        font-size: 2rem;
+    }
 }
 
+/* Pequeños ajustes para móviles muy pequeños */
 @media (max-width: 480px) {
-    .logo span {
-        font-size: 1.3rem;
+    .header-container {
+        padding: 8px 0;
+    }
+    
+    .logo img {
+        height: 25px;
+    }
+    
+    .mobile-menu-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .language-button {
+        min-width: 90px;
+        padding: 6px 10px;
+        font-size: 0.85rem;
+    }
+    
+    nav.active {
+        top: 65px;
+        height: calc(100vh - 65px);
+        padding: 15px;
+    }
+    
+    .nav-links li a {
+        padding: 16px 18px !important;
+        font-size: 1rem !important;
     }
     
     .breadcrumb {
-        margin-top: 160px;
-        font-size: 0.8rem;
+        margin-top: 140px;
         padding: 12px 0;
+        font-size: 0.9rem;
     }
     
     .section-title h2 {
@@ -516,9 +615,37 @@ footer .container p {
     .doctor-info h3 {
         font-size: 1.3rem;
     }
-    
-    .language-button {
-        padding: 6px 12px;
-        font-size: 0.9rem;
+}
+
+/* Asegurar que en desktop se vea normal */
+@media (min-width: 769px) {
+    .mobile-menu-btn {
+        display: none !important;
     }
+    
+    nav,
+    .header-buttons {
+        display: flex !important;
+    }
+}
+
+/* Backdrop para menú móvil */
+.mobile-menu-backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+body.mobile-menu-open .mobile-menu-backdrop {
+    display: block;
+}
+
+/* Prevenir scroll cuando el menú está abierto */
+body.mobile-menu-open {
+    overflow: hidden;
 }

@@ -126,44 +126,63 @@
   </footer>
 
   <script>
-    // Mobile menu functionality
-    document.addEventListener('DOMContentLoaded', function() {
-      const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-      const nav = document.querySelector('#header nav');
-      
-      mobileMenuBtn.addEventListener('click', function() {
+   // Mobile menu functionality mejorada
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const nav = document.querySelector('#header nav');
+    const body = document.body;
+    
+    // Crear backdrop
+    const backdrop = document.createElement('div');
+    backdrop.className = 'mobile-menu-backdrop';
+    document.body.appendChild(backdrop);
+    
+    mobileMenuBtn.addEventListener('click', function() {
         nav.classList.toggle('active');
-      });
+        body.classList.toggle('mobile-menu-open');
+        
+        // Cambiar ícono
+        const icon = mobileMenuBtn.querySelector('i');
+        if (nav.classList.contains('active')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+        } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
     });
-
-    // JavaScript para el botón de idioma
-    document.addEventListener('DOMContentLoaded', function() {
-      const switchButton = document.getElementById('switchButton');
-      const languageDropdown = document.getElementById('languageDropdown');
-      const currentLang = document.getElementById('currentLang');
-      
-      // Toggle dropdown
-      switchButton.addEventListener('click', function(e) {
-        e.stopPropagation();
-        switchButton.classList.toggle('active');
-      });
-      
-      // Seleccionar idioma
-      languageDropdown.querySelectorAll('div[data-lang]').forEach(item => {
-        item.addEventListener('click', function() {
-          const lang = this.getAttribute('data-lang');
-          currentLang.textContent = lang.toUpperCase();
-          switchButton.classList.remove('active');
-          // Aquí puedes agregar la lógica para cambiar el idioma
-          console.log('Idioma cambiado a:', lang);
+    
+    // Cerrar menú al hacer clic en backdrop
+    backdrop.addEventListener('click', function() {
+        nav.classList.remove('active');
+        body.classList.remove('mobile-menu-open');
+        const icon = mobileMenuBtn.querySelector('i');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+    });
+    
+    // Cerrar menú al hacer clic en un enlace (opcional)
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', function() {
+            nav.classList.remove('active');
+            body.classList.remove('mobile-menu-open');
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
         });
-      });
-      
-      // Cerrar dropdown al hacer click fuera
-      document.addEventListener('click', function() {
-        switchButton.classList.remove('active');
-      });
     });
+    
+    // Cerrar menú con tecla Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && nav.classList.contains('active')) {
+            nav.classList.remove('active');
+            body.classList.remove('mobile-menu-open');
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+        }
+    });
+});
   </script>
   
 </body>
