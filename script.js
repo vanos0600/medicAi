@@ -13,26 +13,16 @@ function debounce(func, wait, immediate) {
     };
 }
 
-function throttle(func, limit) {
-    let inThrottle;
-    return function(...args) {
-        if (!inThrottle) {
-            func.apply(this, args);
-            inThrottle = true;
-            setTimeout(() => inThrottle = false, limit);
-        }
-    }
-}
-
-/* ===== MAIN SCRIPT ===== */
 document.addEventListener('DOMContentLoaded', function() {
-    const body = document.body;
-
-    // ===== 1. MOBILE MENU LOGIC (Simplified & Robust) =====
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn'); // Use class selector
-    const nav = document.querySelector('nav'); // Select nav directly
     
-    // Create backdrop if it doesn't exist
+    // =================================================
+    // 1. MENÚ MÓVIL (Lógica Simplificada y Robusta)
+    // =================================================
+    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+    const nav = document.querySelector('nav'); // Selecciona el <nav> directamente
+    const body = document.body;
+    
+    // Crear fondo oscuro (backdrop) si no existe
     let backdrop = document.querySelector('.mobile-menu-backdrop');
     if (!backdrop) {
         backdrop = document.createElement('div');
@@ -42,11 +32,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function toggleMenu() {
         if (!nav) return;
-        
-        nav.classList.toggle('active'); // Use 'active' instead of 'mobile-active' to match new CSS
+        nav.classList.toggle('active'); // Usamos la clase .active del CSS nuevo
         body.classList.toggle('mobile-menu-open');
 
-        // Toggle Icon
+        // Cambiar icono (Hamburguesa <-> X)
         const icon = mobileMenuBtn.querySelector('i');
         if (icon) {
             if (nav.classList.contains('active')) {
@@ -59,18 +48,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    if (mobileMenuBtn && nav) {
+    if (mobileMenuBtn) {
         mobileMenuBtn.addEventListener('click', function(e) {
             e.stopPropagation();
             toggleMenu();
         });
+    }
 
-        // Close on backdrop click
-        backdrop.addEventListener('click', function() {
-            if (nav.classList.contains('active')) toggleMenu();
-        });
+    if (backdrop) {
+        backdrop.addEventListener('click', toggleMenu);
+    }
 
-        // Close on link click
+    // Cerrar menú al hacer clic en un enlace
+    if (nav) {
         nav.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', function() {
                 if (nav.classList.contains('active')) toggleMenu();
@@ -78,7 +68,30 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // ===== 2. LANGUAGE SWITCHER =====
+    // =================================================
+    // 2. COOKIE BANNER (Lógica de Aceptación)
+    // =================================================
+    const cookieBanner = document.getElementById('cookieBanner');
+    const acceptBtn = document.getElementById('acceptCookies');
+
+    // Verificar si ya se aceptaron las cookies
+    if (cookieBanner && acceptBtn && !localStorage.getItem('cookiesAccepted')) {
+        // Mostrar banner después de 1 segundo
+        setTimeout(() => {
+            cookieBanner.style.transform = 'translateY(0)'; // Deslizar hacia arriba
+        }, 1000);
+
+        acceptBtn.addEventListener('click', () => {
+            // Ocultar banner
+            cookieBanner.style.transform = 'translateY(100%)'; // Deslizar hacia abajo
+            // Guardar preferencia en navegador
+            localStorage.setItem('cookiesAccepted', 'true');
+        });
+    }
+
+    // =================================================
+    // 3. SWITCH DE IDIOMA
+    // =================================================
     const switchButton = document.getElementById('switchButton');
     const currentLang = document.getElementById('currentLang');
     
@@ -88,70 +101,94 @@ document.addEventListener('DOMContentLoaded', function() {
             this.classList.toggle('active');
         });
         
-        // Close on click outside
+        // Cerrar al hacer clic fuera
         document.addEventListener('click', () => {
             switchButton.classList.remove('active');
         });
 
-        // Handle selection
+        // Selección de idioma
         const langOptions = document.querySelectorAll('.language-dropdown div');
         langOptions.forEach(option => {
             option.addEventListener('click', function() {
                 const lang = this.getAttribute('data-lang');
                 if (currentLang) currentLang.textContent = lang.toUpperCase();
-                //alert('Language switched to ' + lang); // Optional feedback
             });
         });
     }
 
-    // ===== 3. COOKIE BANNER =====
-    const cookieBanner = document.getElementById('cookieBanner');
-    const acceptCookies = document.getElementById('acceptCookies');
+    // =================================================
+    // 4. SCROLL SUAVE (Corrección para Header Fijo)
+    // =================================================
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#' || targetId === '#0') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                e.preventDefault();
+                // Calcular posición restando la altura del header (80px)
+                const headerOffset = 90; 
+                const elementPosition = targetElement.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
     
-    if (cookieBanner && acceptCookies && !localStorage.getItem('cookiesAccepted')) {
-        setTimeout(() => {
-            cookieBanner.style.transform = 'translateY(0)'; // Slide up
-        }, 1000);
-        
-        acceptCookies.addEventListener('click', () => {
-            cookieBanner.style.transform = 'translateY(100%)'; // Slide down
-            localStorage.setItem('cookiesAccepted', 'true');
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+            }
         });
-    }
+    });
 
-    // ===== 4. WINDOW RESIZE (Debounced) =====
-    window.addEventListener('resize', debounce(function() {
-        // Close mobile menu on resize to desktop
-        if (window.innerWidth > 1024 && nav && nav.classList.contains('active')) {
-            toggleMenu(); // Resets classes
-        }
-    }, 250));
-
-    // ===== 5. LAZY LOADING (Performance) =====
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
+    // =================================================
+    // 5. ANIMACIONES AL HACER SCROLL (Fade In)
+    // =================================================
+    // Añadir clase .fade-in a los elementos que quieras animar en el HTML
+    const fadeElements = document.querySelectorAll('.fade-in, .stat-item, .step, .doctor-card');
+    
+    if (fadeElements.length > 0 && 'IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    const img = entry.target;
-                    if(img.dataset.src) {
-                        img.src = img.dataset.src;
-                        img.removeAttribute('data-src');
-                    }
-                    imageObserver.unobserve(img);
+                    entry.target.classList.add('appear');
+                    observer.unobserve(entry.target); // Dejar de observar una vez animado
                 }
             });
+        }, { threshold: 0.1 });
+        
+        fadeElements.forEach(el => {
+            el.classList.add('fade-in-hidden'); // Estado inicial
+            observer.observe(el);
         });
-        document.querySelectorAll('img[data-src]').forEach(img => imageObserver.observe(img));
     }
 
-    // ===== 6. SIMPLE FORM VALIDATION (Contact) =====
+    // =================================================
+    // 6. FORM VALIDATION (Formulario de Contacto)
+    // =================================================
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            // Add your validation logic or submission here
-            alert('Thank you! Message sent.');
+            const name = document.getElementById('name');
+            const email = document.getElementById('email');
+            
+            if(name.value.trim() === "" || email.value.trim() === "") {
+                alert("Please fill in all required fields.");
+                return;
+            }
+            
+            alert('Message sent successfully! We will contact you shortly.');
             this.reset();
         });
     }
+
+    // =================================================
+    // 7. MANEJO DE RESIZE
+    // =================================================
+    window.addEventListener('resize', debounce(function() {
+        // Si la pantalla crece más de 1024px, cerrar menú móvil para evitar bugs visuales
+        if (window.innerWidth > 1024 && nav && nav.classList.contains('active')) {
+            toggleMenu(); 
+        }
+    }, 250));
 });
