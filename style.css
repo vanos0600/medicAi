@@ -1924,65 +1924,94 @@ footer {
 }
 
 
-       /* Cookie Banner Styles */
+
+/* Contenedor principal */
 .cookie-banner {
     position: fixed;
     bottom: 0;
     left: 0;
-    right: 0;
-    background: var(--primary);
-    color: white;
-    padding: 15px 0;
-    z-index: 1000;
-    box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+    width: 100%;
+    background-color: var(--bg-banner);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    z-index: 9999; /* Asegura que esté encima de todo */
+    display: none; /* Oculto por defecto hasta que JS diga lo contrario */
+    font-family: sans-serif;
 }
+
+/* Clase para mostrar el banner con una pequeña animación */
+.cookie-banner.show {
+    display: block;
+    animation: slideUp 0.5s ease-out;
+}
+
+/* Contenido interno */
 .cookie-content {
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-.cookie-text {
-    flex: 1;
-    min-width: 300px;
-    color: white;
-    font-size: 1.4rem;
+    gap: 20px;
 }
 
 .cookie-text p {
     margin: 0;
-    font-size: 1.4rem;
-    line-height: 1.4;
-    color: white;
+    color: var(--text-color);
+    line-height: 1.5;
 }
 
-.cookie-text a {
-    color: white;
-    text-decoration: underline;
-    font-weight: 600;
-}
-
+/* Botones */
 .cookie-buttons {
     display: flex;
     gap: 10px;
-    flex-wrap: wrap;
-   
+    flex-shrink: 0; /* Evita que los botones se aplasten */
 }
 
-.cookie-buttons .btn {
-    padding: 12px 25px;
-    font-size: 1.2rem;
-    border-radius: var(--radius);
+.btn {
+    padding: 8px 16px;
     border: none;
+    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    color: var(--white);
- background-color: var(--accent);
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.btn-primary {
+    background-color: var(--primary);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-hover);
+}
+
+.btn-secondary {
+    background-color: #e2e6ea;
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background-color: #dbe2e8;
+}
+
+/* Animación de entrada */
+@keyframes slideUp {
+    from { transform: translateY(100%); }
+    to { transform: translateY(0); }
+}
+
+/* Responsive: En móviles, poner botones debajo del texto */
+@media (max-width: 768px) {
+    .cookie-content {
+        flex-direction: column;
+        text-align: left;
+    }
+    
+    .cookie-buttons {
+        width: 100%;
+        justify-content: flex-end;
+    }
 }
 /* ===== MOBILE RESPONSIVENESS ===== */
 

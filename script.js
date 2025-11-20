@@ -1,9 +1,13 @@
-/* ===== MOBILE MENU FUNCTIONALITY ===== */
+//* ===== MOBILE MENU FUNCTIONALITY & OTHERS ===== */
 document.addEventListener('DOMContentLoaded', function() {
+    // --- VARIABLES GLOBALES ---
     const body = document.body;
+
+    /* =========================================
+       1. MOBILE MENU
+       ========================================= */
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const nav = document.getElementById('nav');
-    const headerTools = document.querySelector('.header-tools');
 
     // Create mobile backdrop
     const mobileBackdrop = document.createElement('div');
@@ -60,7 +64,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Language dropdown functionality
+    /* =========================================
+       2. LANGUAGE DROPDOWN
+       ========================================= */
     const switchButton = document.getElementById('switchButton');
     const languageDropdown = document.getElementById('languageDropdown');
     const currentLang = document.getElementById('currentLang');
@@ -76,7 +82,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 const lang = this.getAttribute('data-lang');
                 currentLang.textContent = lang.toUpperCase();
                 switchButton.classList.remove('active');
-                alert('Language changed to: ' + lang);
+                // Aquí podrías añadir lógica real de cambio de idioma
+                console.log('Language changed to: ' + lang); 
             });
         });
         
@@ -92,6 +99,34 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    /* =========================================
+       3. COOKIE BANNER FUNCTIONALITY (NUEVO)
+       ========================================= */
+    const cookieBanner = document.getElementById("cookieBanner");
+    const acceptCookiesBtn = document.getElementById("acceptCookies");
+    const manageCookiesBtn = document.getElementById("manageCookies");
 
-    
+    if (cookieBanner && acceptCookiesBtn) {
+        // Comprobar si ya se aceptaron las cookies
+        if (!localStorage.getItem("cookiesAccepted")) {
+            // Pequeño retraso para que la animación se vea suave al cargar la web
+            setTimeout(() => {
+                cookieBanner.classList.add("show");
+            }, 500); 
+        }
+
+        // Botón Aceptar
+        acceptCookiesBtn.addEventListener("click", function() {
+            localStorage.setItem("cookiesAccepted", "true");
+            cookieBanner.classList.remove("show");
+        });
+
+        // Botón Gestionar (Opcional)
+        if (manageCookiesBtn) {
+            manageCookiesBtn.addEventListener("click", function() {
+                // Aquí iría la lógica para abrir el modal de preferencias
+                alert("Abrir configuración de cookies...");
+            });
+        }
+    }
 });
