@@ -413,44 +413,80 @@ nav ul li a:hover::after {
             margin-top: 40px;
         }
 
-        .stats-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 40px;
-            position: relative;
-            z-index: 1;
-        }
+      /* Contenedor: Grid de 4 columnas para que queden 4 arriba y 4 abajo */
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas iguales */
+    gap: 20px;
+    max-width: 1200px; /* Ancho máximo para que no se estiren demasiado */
+    margin: 40px auto; /* Centrado en la página */
+    padding: 0 20px;
+}
 
-        .stat-item {
-            background-color: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 25px 35px;
-            border-radius: var(--radius);
-            text-align: center;
-            transition: var(--transition);
-            min-width: 180px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
+/* La Tarjeta individual */
+.stat-item {
+    background-color: var(--primary);
+    color: white;
+    border-radius: 12px; /* Bordes más suaves */
+    padding: 1.5rem 1rem; /* Espacio interno equilibrado */
+    display: flex;
+    flex-direction: column; /* Uno debajo del otro */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 50, 150, 0.15); /* Sombra azulada suave */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%; /* Para que todas tengan la misma altura */
+}
 
-        .stat-item:hover {
-            transform: translateY(-10px);
-            background-color: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
-        }
+/* Efecto Hover */
+.stat-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 50, 150, 0.25);
+}
 
-        .stat-number {
-            font-size: 2.8rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
+/* Estilo para el NÚMERO (Grande y negrita) */
+.stat-number {
+    font-size: 2rem; /* Tamaño grande */
+    font-weight: 800; /* Muy grueso */
+    line-height: 1.2;
+    margin-bottom: 5px; /* Separación con el texto */
+    display: block;
+}
 
-        .stat-label {
-            font-size: 1rem;
-            color: var(--primary);
-            font-weight: 500;
-        }
+/* Estilo para la ETIQUETA (Pequeña y clara) */
+.stat-label {
+    font-size: 0.9rem;
+    font-weight: 400;
+    opacity: 0.9; /* Un poco transparente para dar jerarquía */
+    text-transform: uppercase; /* Opcional: letras mayúsculas se ven pro */
+    letter-spacing: 1px; /* Espacio entre letras */
+}
+
+/* RESPONSIVE: Adaptarse a móviles y tablets */
+
+/* Tablets (2 columnas) */
+@media (max-width: 992px) {
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Móviles (1 columna o grid de 2 pequeño) */
+@media (max-width: 576px) {
+    .stats-container {
+        grid-template-columns: repeat(2, 1fr); /* Mantenemos 2 para que no sea una lista eterna */
+        gap: 10px;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem;
+    }
+    
+    .stat-label {
+        font-size: 0.75rem;
+    }
+}
 
         /* Section Styles */
         .section {
