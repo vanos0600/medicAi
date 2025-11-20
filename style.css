@@ -41,124 +41,145 @@
             padding: 0 20px;
         }
 
-/* HEADER SECTION */
+/* =========================================
+   HEADER (REDISEÑADO Y ELEGANTE)
+   ========================================= */
 #header {
+    background: white; /* Fondo blanco limpio */
+    height: 80px; /* Altura fija cómoda */
+    width: 100%;
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    background: white;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
     z-index: 1000;
-    transition: var(--transition);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Sombra muy suave y moderna */
+    display: flex;
+    align-items: center; /* Centrado vertical perfecto */
 }
 
 .header-container {
+    width: 100%;
+    max-width: 1400px; /* Ancho máximo para que no se pegue a los bordes en pantallas gigantes */
+    margin: 0 auto;
+    padding: 0 40px; /* Espacio (padding) a los lados para que no toque los bordes */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 0;
 }
 
+/* --- LOGO (Arreglado) --- */
 .logo {
     display: flex;
     align-items: center;
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--white);
     text-decoration: none;
-    transition: var(--transition);
+    height: 100%; /* Asegura que ocupe el alto del contenedor */
 }
 
 .logo img {
-    height: 30px;
-    margin-right: 0px;
+    height: 45px; /* Tamaño controlado */
+    width: auto;  /* Mantiene la proporción para que no se aplaste */
+    object-fit: contain; /* Asegura que la imagen se vea completa */
+    display: block;
 }
 
-.logo:hover {
-    transform: translateY(-2px);
+/* --- NAVEGACIÓN (Centrada y limpia) --- */
+nav {
+    flex: 1; /* Toma el espacio disponible para centrarse */
+    display: flex;
+    justify-content: center; /* Centra el menú horizontalmente */
 }
 
 nav ul {
     display: flex;
-    white-space: nowrap;
     list-style: none;
-}
-
-nav ul li {
-    margin: 0 15px;
+    gap: 35px; /* Más espacio entre enlaces para elegancia */
+    margin: 0;
+    padding: 0;
 }
 
 nav ul li a {
-    color: black;
+    color: var(--dark); /* Color oscuro suave (no negro puro) */
     text-decoration: none;
-    font-weight: 800;
+    font-weight: 600;
+    font-size: 1.4rem;
+    letter-spacing: 0.5px;
+    padding: 5px 0;
     position: relative;
-    padding: 10px 0; /* <-- CORREGIDO: Reducido de 50px a 10px */
-    transition: var(--transition);
-    font-size: 1.2rem;
+    transition: color 0.3s ease;
 }
 
-/* --- CLASE .nav-links ELIMINADA --- (No se usaba en tu HTML) */
+nav ul li a:hover,
+nav ul li a.active {
+    color: var(--primary);
+}
 
+/* Pequeño punto azul debajo del link activo en lugar de una línea larga */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background-color: var(--primary);
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 20px; /* Punto sutil */
+}
+
+/* --- BOTÓN DE IDIOMA (Switch) - Estilo Minimalista --- */
 .header-tools {
     display: flex;
     align-items: center;
-    gap: 15px; 
 }
 
 .language-button {
-    position: relative;
-    background-color: var(--white);
-    color: var(--primary);
-    border: 2px solid var(--primary);
-    border-radius: var(--radius);
+    background-color: transparent; /* Fondo transparente */
+    color: var(--dark);
+    border: 1px solid #E5E7EB; /* Borde gris muy sutil y fino */
     padding: 8px 16px;
+    border-radius: 50px; /* Forma de píldora completa */
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
     display: flex;
     align-items: center;
     gap: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-    user-select: none;
-}
-
-.language-button:hover {
-    background-color: var(--primary-light);
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(44, 82, 254, 0.2);
-}
-
-.language-button .language-content {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 1rem;
+    transition: all 0.3s ease;
 }
 
 .language-button i {
-    font-size: 1rem;
+    color: var(--primary); /* Icono del mundo en azul */
+    font-size: 1.1rem;
 }
 
-/* Dropdown */
+.language-button:hover {
+    border-color: var(--primary);
+    background-color: rgba(0, 86, 179, 0.05); /* Fondo azul muy tenue al pasar el mouse */
+    color: var(--primary);
+    transform: translateY(0); /* Quitamos movimiento brusco */
+    box-shadow: none;
+}
+
+/* Dropdown del idioma (oculto por defecto) */
 .language-dropdown {
     position: absolute;
-    top: 110%;
+    top: 120%; /* Un poco más abajo */
     right: 0;
-    background-color: var(--white);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    overflow: hidden;
-    min-width: 140px;
-    border: 1px solid var(--background-grey);
-    transition: var(--transition);
+    background: white;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    padding: 5px;
+    min-width: 120px;
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-5px);
-    z-index: 999;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
 }
 
 .language-button.active .language-dropdown {
@@ -167,39 +188,22 @@ nav ul li a {
     transform: translateY(0);
 }
 
-.language-dropdown div {
-    padding: 10px 15px;
-    color: var(--text);
+/* --- AJUSTE PARA MÓVIL (Menú Hamburguesa) --- */
+.mobile-menu-btn {
+    display: none; /* Oculto en PC */
+    font-size: 1.5rem;
+    color: var(--dark);
+    background: none;
+    border: none;
     cursor: pointer;
-    transition: var(--transition);
-    font-weight: 500;
 }
 
-.language-dropdown div:hover {
-    background-color: var(--primary-light);
-    color: white;
+/* --- MEDIA QUERY (TABLETS Y LAPTOTS PEQUEÑAS) --- */
+@media (max-width: 1024px) {
+    nav, .header-tools { display: none; } /* Oculta menú y botón idioma */
+    .mobile-menu-btn { display: block; } /* Muestra hamburguesa */
+    .header-container { justify-content: space-between; padding: 0 20px; }
 }
-
-nav ul li a:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background-color: var(--primary);
-    transition: var(--transition);
-}
-
-nav ul li a:hover:after,
-nav ul li a.active:after {
-    width: 100%;
-}
-
-nav ul li a:hover {
-    color: var(--primary);
-}
-
 .primary-color {
     color: var(--primary); /* primary color for the word Astorre in the title */
 }
@@ -250,6 +254,98 @@ nav ul li a:hover {
 .btn-secondary:hover {
     background-color: rgba(255, 255, 255, 0.1);
     transform: translateY(-3px);
+}
+
+
+
+
+
+/* =========================================
+   NUEVA SECCIÓN DE BÚSQUEDA (Debajo del Header)
+   ========================================= */
+
+.search-bar-section {
+    /* Empujamos hacia abajo porque el header es 'fixed' y mide 80px */
+    margin-top: 80px; 
+    background-color: var(--white);
+    padding: 20px 0;
+    border-bottom: 1px solid #e1e4e8;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    position: relative;
+    z-index: 90;
+}
+
+.centered-search-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 600px; /* Ancho máximo controlado */
+    margin: 0 auto;   /* Centrado horizontal */
+    position: relative;
+}
+
+.centered-search-form input {
+    width: 100%;
+    padding: 12px 50px 12px 20px; /* Espacio a la derecha para el botón */
+    border: 2px solid #eee;
+    border-radius: 50px; /* Forma de píldora */
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.centered-search-form input:focus {
+    background-color: white;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(0, 86, 179, 0.1);
+}
+
+.centered-search-form button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--primary);
+    color: white;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+}
+
+.centered-search-form button:hover {
+    background: var(--primary-dark);
+}
+
+/* AJUSTE DEL HERO PARA QUE NO HAYA DOBLE ESPACIO */
+/* Como ya bajamos la barra de búsqueda 80px, el Hero no necesita tanto padding arriba */
+.hero {
+    padding-top: 60px !important; /* Sobrescribimos el padding anterior */
+}
+
+/* RESPONSIVE: Ajustes para móvil */
+@media (max-width: 768px) {
+    .search-bar-section {
+        padding: 15px 0;
+    }
+    
+    .centered-search-form input {
+        font-size: 0.9rem;
+        padding: 10px 40px 10px 15px;
+    }
+}
+
+/* Responsive: Ocultar en pantallas muy pequeñas si es necesario */
+@media (max-width: 992px) {
+    .search-container {
+        display: none; /* Ocultar en móvil para no romper el menú */
+    }
 }
 
         /* HERO SECTION  */

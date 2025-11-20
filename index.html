@@ -25,46 +25,45 @@
     </div>
 
 
-
 <header id="header">
-  <div class="container header-container">
-    <a href="#" class="logo">
-      <img src="logo/image.png" alt="Medic AI Polyclinic Logo">
-    </a>
+    <div class="header-container">
+        <a href="index.html" class="logo">
+            <img src="logo/image.png" alt="Medic AI Logo">
+        </a>
 
-    <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu">
-      <i class="fas fa-bars"></i>
-    </button>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="ourSpecialist.html">Our Specialists</a></li>
+                <li><a href="doctor-detail.html">Doctors Details</a></li>
+                <li><a href="patient-portal.html">Patient Portal</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
 
-    <nav id="nav">
-      <ul>
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="ourSpecialist.html">Our Specialists</a></li>
-        <li><a href="doctor-detail.html">Doctors Details</a></li>
-        <li><a href="patient-portal.html">Patient Portal</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-
-    <div class="header-tools">
-      <a href="patient-portal.html" class="btn btn-secondary btn-small">
-        <i class="fas fa-user-circle"></i> Patient Portal
-      </a>
-
-      <!-- 🔵 Botón de idioma al extremo derecho -->
-      <div class="language-button" id="switchButton">
-        <div class="language-content">
-          <i class="fas fa-globe"></i> <span id="currentLang">EN</span>
-          <i class="fas fa-caret-down"></i>
+        <div class="header-tools">
+            <div class="language-button" id="switchButton">
+                <i class="fas fa-globe"></i> EN
+            </div>
         </div>
-        <div class="language-dropdown" id="languageDropdown">
-          <div data-lang="en">English</div>
-          <div data-lang="cs">Čeština</div>
-        </div>
-      </div>
+        
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
     </div>
-  </div>
 </header>
+
+<div class="search-bar-section">
+    <div class="container">
+        <form action="search-results.html" class="centered-search-form">
+            <input type="text" name="q" placeholder="Search doctors, treatments, symptoms...">
+            <button type="submit"><i class="fas fa-search"></i></button>
+        </form>
+    </div>
+</div>
+
+<main>
+   </main>
 
 
     <section class="hero">
@@ -77,24 +76,19 @@
                 <a href="#contact" class="btn btn-primary">Book Appointment</a>
             </div>
         </div>
-        <div class="stats-container">
-            <div class="stat-item">
-                <div class="stat-number">98%</div>
-                <div class="stat-label">Diagnostic Accuracy</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">15%</div>
-                <div class="stat-label">Reduced Wait Times</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">95%</div>
-                <div class="stat-label">Patient Satisfaction</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">100+</div>
-                <div class="stat-label">Certified Specialists</div>
-            </div>
-        </div>
+
+       <div class="stats-container">
+
+       <div class="stat-item">...98% Accuracy...</div>
+       <div class="stat-item">...15% Wait Time...</div>
+       <div class="stat-item">...95% Satisfaction...</div>
+       <div class="stat-item">...100+ Specialists...</div>
+       <div class="stat-item">...24/7 Support...</div>
+       <div class="stat-item">...Global Partners...</div>
+       <div class="stat-item">...Award Winning...</div>
+       <div class="stat-item">...Modern Tech...</div>
+
+       </div>
     </div>
 </section>
 

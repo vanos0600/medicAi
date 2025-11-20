@@ -3,53 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Specialists | Medic AI  Polyclinic</title>
+  <title>Our Specialists | Medic AI Polyclinic</title>
   <link rel="stylesheet" href="ourSpecialist.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-  <!-- Header -->
+
   <header id="header">
-    <div class="container">
-      <div class="header-container">
-        <a href="index.html" class="logo">
-          <img src="logo/image.png" alt="Medic AI Polyclinic Logo">
-        </a>
-        <nav>
-          <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="ourSpecialist.html">Our Specialists</a></li>
-            <li><a href="doctor-detail.html" class="active">Doctor details</a></li>
-            <li><a href="search-results.html">Search</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-          </ul>
-        </nav>
+    <div class="header-container">
+      
+      <a href="index.html" class="logo">
+        <img src="logo/image.png" alt="Medic AI Polyclinic Logo">
+      </a>
 
-        <!-- 🔵 Botón de idioma agregado aquí -->
-        <div class="language-button" id="switchButton">
-          <div class="language-content">
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="ourSpecialist.html" class="active">Our Specialists</a></li>
+          <li><a href="doctor-detail.html">Doctor details</a></li>
+          <li><a href="patient-portal.html">Patient Portal</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-right-group">
+          <div class="language-button" id="switchButton">
             <i class="fas fa-globe"></i> <span id="currentLang">EN</span>
-            <i class="fas fa-caret-down"></i>
+            <div class="language-dropdown" id="languageDropdown">
+                <div data-lang="en">English</div>
+                <div data-lang="cs">Čeština</div>
+            </div>
           </div>
-          <div class="language-dropdown" id="languageDropdown">
-            <div data-lang="en">English</div>
-            <div data-lang="cs">Čeština</div>
-          </div>
-        </div>
 
-        <div class="header-buttons">
-          <a href="#" class="btn btn-secondary">Login</a>
-          <a href="#" class="btn btn-primary">Register</a>
-        </div>
-        <button class="mobile-menu-btn">
-          <i class="fas fa-bars"></i>
-        </button>
+          
+
+          <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+          </button>
       </div>
+
     </div>
   </header>
 
+  <div class="search-bar-section">
+      <div class="centered-search-form">
+        <form action="search-results.html" method="GET">
+            <input type="text" name="q" placeholder="Search doctors, treatments, symptoms...">
+            <button type="submit"><i class="fas fa-search"></i></button>
+        </form>
+      </div>
+  </div>
+
   <main>
-    <!-- Breadcrumb -->
     <nav aria-label="Breadcrumb" class="breadcrumb">
       <div class="container">
         <a href="index.html">Home</a> › 
@@ -57,7 +62,6 @@
       </div>
     </nav>
 
-    <!-- Specialists Section -->
     <section class="section specialists-section">
       <div class="container">
         <div class="section-title">
@@ -66,50 +70,47 @@
         </div>
 
         <div class="doctors-grid">
-          <!-- Doctor 1 -->
           <div class="doctor-card">
             <div class="doctor-card-content">
               <div class="doctor-avatar">
-                <img src="/logo/dr1.jpeg" alt="Dr. Karim Smith">
+                <img src="logo/dr1.jpeg" alt="Dr. Karim Smith">
               </div>
               <div class="doctor-info">
-                <h3>Dr. Karim </h3>
+                <h3>Dr. Karim</h3>
                 <p class="specialty">Cardiologist</p>
                 <p class="experience">15 years experience</p>
-                <p class="description">Specialized in cardiovascular diseases and preventive cardiology with advanced diagnostic techniques.</p>
-                <a href="doctor-detail.html" class="btn btn-primary">View Details</a>
+                <p class="description">Specialized in cardiovascular diseases and preventive cardiology.</p>
+                <a href="doctor-detail.html#dr-karim" class="btn-primary">View Details</a>
               </div>
             </div>
           </div>
 
-          <!-- Doctor 2 -->
           <div class="doctor-card">
             <div class="doctor-card-content">
               <div class="doctor-avatar">
-                <img src="/logo/dr2.png" alt="Dr. Timur Brown">
+                <img src="logo/dr2.png" alt="Dr. Timur Brown">
               </div>
               <div class="doctor-info">
-                <h3>Dr. Timur</h3>
-                <p class="specialty">Gynecologist</p>
+                <h3>Dr. Timur Smith</h3>
+                <p class="specialty">Cardiology</p>
                 <p class="experience">12 years experience</p>
-                <p class="description">Expert in neurological disorders, brain health, and innovative treatment approaches.</p>
-                <a href="doctor-detail.html" class="btn btn-primary">View Details</a>
+                <p class="description">Expert in preventive cardiology and patient education.</p>
+                <a href="doctor-detail.html#dr-timur" class="btn-primary">View Details</a>
               </div>
             </div>
           </div>
 
-          <!-- Doctor 3 -->
           <div class="doctor-card">
             <div class="doctor-card-content">
               <div class="doctor-avatar">
-                <img src="/logo/dr3.png" alt="Dr. Alina Kovacs">
+                <img src="logo/dr3.png" alt="Dr. Alina Kovacs">
               </div>
               <div class="doctor-info">
-                <h3>Dr. ALina</h3>
+                <h3>Dr. Alina</h3>
                 <p class="specialty">Pediatrician</p>
                 <p class="experience">10 years experience</p>
-                <p class="description">Dedicated to children's health from infancy through adolescence with compassionate care.</p>
-                <a href="doctor-detail.html" class="btn btn-primary">View Details</a>
+                <p class="description">Dedicated to children's health from infancy through adolescence.</p>
+                <a href="doctor-detail.html#dr-alina" class="btn-primary">View Details</a>
               </div>
             </div>
           </div>
@@ -118,7 +119,6 @@
     </section>
   </main>
 
-  <!-- Footer -->
   <footer>
     <div class="container">
       <p>This is a student project created by Oskar Vanegas, Tsibirinko Yaroslav, Tsibirinko Artem and Sukhov Kiril, 2025</p>
@@ -126,64 +126,67 @@
   </footer>
 
   <script>
-   // Mobile menu functionality mejorada
-document.addEventListener('DOMContentLoaded', function() {
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const nav = document.querySelector('#header nav');
-    const body = document.body;
-    
-    // Crear backdrop
-    const backdrop = document.createElement('div');
-    backdrop.className = 'mobile-menu-backdrop';
-    document.body.appendChild(backdrop);
-    
-    mobileMenuBtn.addEventListener('click', function() {
-        nav.classList.toggle('active');
-        body.classList.toggle('mobile-menu-open');
+    // Mobile menu functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const nav = document.querySelector('#header nav'); // Selecciona el NAV principal
+        const body = document.body;
+
+        // Crear backdrop si no existe
+        let backdrop = document.querySelector('.mobile-menu-backdrop');
+        if (!backdrop) {
+            backdrop = document.createElement('div');
+            backdrop.className = 'mobile-menu-backdrop';
+            document.body.appendChild(backdrop);
+        }
         
-        // Cambiar ícono
-        const icon = mobileMenuBtn.querySelector('i');
-        if (nav.classList.contains('active')) {
-            icon.classList.remove('fa-bars');
-            icon.classList.add('fa-times');
-        } else {
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
+        if(mobileMenuBtn && nav) {
+            const toggleMenu = () => {
+                nav.classList.toggle('active');
+                body.classList.toggle('mobile-menu-open');
+                
+                // Toggle Icon
+                const icon = mobileMenuBtn.querySelector('i');
+                if (nav.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            };
+
+            mobileMenuBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                toggleMenu();
+            });
+
+            // Cerrar al hacer click en backdrop
+            backdrop.addEventListener('click', toggleMenu);
+        }
+        
+        // Language Switcher Logic
+        const switchButton = document.getElementById('switchButton');
+        const currentLang = document.getElementById('currentLang');
+        
+        if(switchButton) {
+             switchButton.addEventListener('click', function(e) {
+                e.stopPropagation();
+                this.classList.toggle('active');
+             });
+             
+             // Cerrar dropdown al hacer click fuera
+             document.addEventListener('click', () => {
+                switchButton.classList.remove('active');
+             });
+
+             document.querySelectorAll('.language-dropdown div').forEach(item => {
+                item.addEventListener('click', function() {
+                    currentLang.textContent = this.dataset.lang.toUpperCase();
+                });
+             });
         }
     });
-    
-    // Cerrar menú al hacer clic en backdrop
-    backdrop.addEventListener('click', function() {
-        nav.classList.remove('active');
-        body.classList.remove('mobile-menu-open');
-        const icon = mobileMenuBtn.querySelector('i');
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-    });
-    
-    // Cerrar menú al hacer clic en un enlace (opcional)
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', function() {
-            nav.classList.remove('active');
-            body.classList.remove('mobile-menu-open');
-            const icon = mobileMenuBtn.querySelector('i');
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-        });
-    });
-    
-    // Cerrar menú con tecla Escape
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && nav.classList.contains('active')) {
-            nav.classList.remove('active');
-            body.classList.remove('mobile-menu-open');
-            const icon = mobileMenuBtn.querySelector('i');
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-        }
-    });
-});
   </script>
-  
 </body>
 </html>
