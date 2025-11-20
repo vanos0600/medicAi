@@ -91,4 +91,65 @@ document.addEventListener('DOMContentLoaded', function() {
             closeMobileMenu();
         }
     });
+
+
+    // ===== COOKIE BANNER FUNCTIONALITY =====
+function initializeCookieBanner() {
+    const cookieBanner = document.getElementById('cookieBanner');
+    const acceptCookies = document.getElementById('acceptCookies');
+    const manageCookies = document.getElementById('manageCookies');
+    
+    // Verificar que todos los elementos existan
+    if (!cookieBanner || !acceptCookies) {
+        console.warn('Cookie banner elements not found');
+        return;
+    }
+    
+    // Comprobar si ya se aceptaron las cookies
+    const cookiesAccepted = localStorage.getItem('cookiesAccepted');
+    
+    if (!cookiesAccepted) {
+        // Mostrar el banner después de un delay
+        setTimeout(() => {
+            cookieBanner.style.display = 'block';
+            document.body.style.marginBottom = cookieBanner.offsetHeight + 'px';
+        }, 1000);
+    }
+    
+    // Aceptar cookies
+    acceptCookies.addEventListener('click', () => {
+        localStorage.setItem('cookiesAccepted', 'true');
+        cookieBanner.style.display = 'none';
+        document.body.style.marginBottom = '0';
+        console.log('Cookies accepted');
+    });
+    
+    // Gestionar cookies (si existe el botón)
+    if (manageCookies) {
+        manageCookies.addEventListener('click', (e) => {
+            e.preventDefault();
+            // Aquí puedes implementar un modal más elaborado
+            const response = confirm('Would you like to customize your cookie preferences?');
+            if (response) {
+                // Lógica para gestión detallada de cookies
+                alert('Cookie management panel would open here.');
+            }
+        });
+    }
+    
+    // Cerrar banner con Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && cookieBanner.style.display === 'block') {
+            cookieBanner.style.display = 'none';
+            document.body.style.marginBottom = '0';
+        }
+    });
+}
+
+// Inicializar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', function() {
+    initializeCookieBanner();
+    
+    // El resto de tu código JavaScript aquí...
+});
 });
