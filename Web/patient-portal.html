@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Secure Patient Portal - Medic AI Polyclinic. Access your records and appointments.">
+  <title>Patient Portal | Medic AI Polyclinic</title>
+  
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header id="header">
+        <div class="header-container">
+            <a href="index.html" class="logo" aria-label="Medic AI Home">
+                <img src="logo/image.png" alt="Medic AI Polyclinic Logo">
+            </a>
+
+            <nav id="nav" aria-label="Main Navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="ourSpecialist.html">Our Specialists</a></li>
+                    <li><a href="doctor-detail.html">Doctors Details</a></li>
+                    <li><a href="patient-portal.html" class="active">Patient Portal</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-tools">
+                <button class="language-button" id="switchButton" aria-label="Switch Language">
+                    <i class="fas fa-globe"></i> EN
+                </button>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="search-bar-section">
+        <div class="container">
+            <form action="search-results.html" class="centered-search-form" role="search">
+                <label for="site-search" class="sr-only">Search</label>
+                <input type="text" id="site-search" name="q" placeholder="Search medical records, results...">
+                <button type="submit" aria-label="Search"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+    </div>
+
+    <main>
+        <nav aria-label="Breadcrumb" class="breadcrumb-section">
+            <div class="container">
+                <ul class="breadcrumb-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><span class="separator">›</span></li>
+                    <li><span class="current" aria-current="page">Patient Portal</span></li>
+                </ul>
+            </div>
+        </nav>
+
+        <section class="section portal-section">
+            <div class="container">
+                <div class="portal-card">
+                    <div class="portal-header">
+                        <h1><i class="fas fa-user-circle"></i> Patient Login</h1>
+                        <p>Secure access to your health records, appointments, and lab results.</p>
+                    </div>
+
+                    <form class="portal-form" id="loginForm">
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-envelope input-icon"></i>
+                                <input type="email" id="email" name="email" placeholder="name@example.com" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <div class="input-wrapper">
+                                <i class="fas fa-lock input-icon"></i>
+                                <input type="password" id="password" name="password" placeholder="••••••••" required>
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <a href="#" class="forgot-password">Forgot Password?</a>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary full-width">
+                            Log In
+                        </button>
+                        
+                        <div class="portal-footer">
+                            <p>Don't have an account? <a href="#">Register here</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <p>Integrated, AI-guided care for a healthier future.</p>
+                    <div class="footer-contact">
+                        <p>Contact us: <a href="mailto:info@mediAipolyclinic.com">info@mediAipolyclinic.com</a></p>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="index.html#challenges">Diagnostics</a></li>
+                        <li><a href="index.html#how-it-works">Specialist Care</a></li>
+                        <li><a href="index.html#value">Preventive Medicine</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <aside class="footer-legal">
+                <p>Medic AI Polyclinic Ltd. Registered in Prague.</p>
+                <p><strong>This is a student project created by Oskar Vanegas, Tsibirinko Yaroslav, Tsibirinko Artem and Sukhov Kiril.</strong></p>
+                <p>&copy; 2025 Medical AI Polyclinic Ltd. All rights reserved.</p>
+            </aside>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    
+   
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Meet the expert medical team at Medic AI Polyclinic.">
+  <title>Our Specialists | Medic AI Polyclinic</title>
+  
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header id="header">
+        <div class="header-container">
+            <a href="index.html" class="logo" aria-label="Medic AI Home">
+                <img src="logo/image.png" alt="Medic AI Polyclinic Logo">
+            </a>
+
+            <nav id="nav" aria-label="Main Navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="ourSpecialist.html" class="active">Our Specialists</a></li>
+                    <li><a href="doctor-detail.html">Doctors Details</a></li>
+                    <li><a href="patient-portal.html">Patient Portal</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-tools">
+                <button class="language-button" id="switchButton" aria-label="Switch Language">
+                    <i class="fas fa-globe"></i> EN
+                </button>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="search-bar-section">
+        <div class="container">
+            <form action="search-results.html" class="centered-search-form" role="search">
+                <label for="site-search" class="sr-only">Search</label>
+                <input type="text" id="site-search" name="q" placeholder="Search doctors, treatments, symptoms...">
+                <button type="submit" aria-label="Search"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+    </div>
+
+    <main>
+        <nav aria-label="Breadcrumb" class="breadcrumb-section">
+            <div class="container">
+                <ul class="breadcrumb-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><span class="separator">›</span></li>
+                    <li><span class="current" aria-current="page">Our Specialists</span></li>
+                </ul>
+            </div>
+        </nav>
+    
+        <section class="section specialists-section">
+            <div class="container">
+                <div class="section-title">
+                    <h1>Meet Our Medical Experts</h1>
+                    <p>Dedicated professionals combining experience with AI precision.</p>
+                </div>
+
+                <div class="doctors-grid">
+                    
+                    <article class="doctor-card">
+                        <div class="doctor-card-header">
+                            <img src="logo/dr1.jpeg" alt="Dr. Karim" class="doctor-thumb">
+                            <span class="badge-specialty">Cardiology</span>
+                        </div>
+                        <div class="doctor-card-body">
+                            <h3>Dr. Karim</h3>
+                            <p class="experience-text"><i class="fas fa-briefcase"></i> 15 years experience</p>
+                            <p class="description">Specialized in cardiovascular diseases and preventive cardiology.</p>
+                            <div class="card-actions">
+                                <a href="doctor-detail.html#dr-karim" class="btn btn-primary full-width">View Profile</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="doctor-card">
+                        <div class="doctor-card-header">
+                            <img src="logo/dr2.png" alt="Dr. Timur Smith" class="doctor-thumb">
+                            <span class="badge-specialty">Cardiology</span>
+                        </div>
+                        <div class="doctor-card-body">
+                            <h3>Dr. Timur Smith</h3>
+                            <p class="experience-text"><i class="fas fa-briefcase"></i> 12 years experience</p>
+                            <p class="description">Expert in preventive cardiology and patient education.</p>
+                            <div class="card-actions">
+                                <a href="doctor-detail.html#dr-timur" class="btn btn-primary full-width">View Profile</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="doctor-card">
+                        <div class="doctor-card-header">
+                            <img src="logo/dr3.png" alt="Dr. Alina" class="doctor-thumb">
+                            <span class="badge-specialty">Pediatrics</span>
+                        </div>
+                        <div class="doctor-card-body">
+                            <h3>Dr. Alina</h3>
+                            <p class="experience-text"><i class="fas fa-briefcase"></i> 10 years experience</p>
+                            <p class="description">Dedicated to children's health from infancy through adolescence.</p>
+                            <div class="card-actions">
+                                <a href="doctor-detail.html#dr-alina" class="btn btn-primary full-width">View Profile</a>
+                            </div>
+                        </div>
+                    </article>
+                    
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <p>Integrated, AI-guided care for a healthier future.</p>
+                    <div class="footer-contact">
+                        <p>Contact us: <a href="mailto:info@mediAipolyclinic.com">info@mediAipolyclinic.com</a></p>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="index.html#challenges">Diagnostics</a></li>
+                        <li><a href="index.html#how-it-works">Specialist Care</a></li>
+                        <li><a href="index.html#value">Preventive Medicine</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <aside class="footer-legal">
+                <p>Medic AI Polyclinic Ltd. Registered in Prague.</p>
+                <p><strong>This is a student project created by Oskar Vanegas, Tsibirinko Yaroslav, Tsibirinko Artem and Sukhov Kiril.</strong></p>
+                <p>&copy; 2025 Medical AI Polyclinic Ltd. All rights reserved.</p>
+            </aside>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+  
+</body>
+</html>

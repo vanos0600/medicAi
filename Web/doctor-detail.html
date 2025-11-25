@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Meet our specialists at Medic AI Polyclinic. Expert cardiologists and pediatricians.">
+  <title>Doctor Profiles | Medic AI Polyclinic</title>
+  
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header id="header">
+        <div class="header-container">
+            <a href="index.html" class="logo" aria-label="Medic AI Home">
+                <img src="logo/image.png" alt="Medic AI Polyclinic Logo">
+            </a>
+
+            <nav id="nav" aria-label="Main Navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="ourSpecialist.html">Our Specialists</a></li>
+                    <li><a href="doctor-detail.html" class="active">Doctors Details</a></li>
+                    <li><a href="patient-portal.html">Patient Portal</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-tools">
+                <button class="language-button" id="switchButton" aria-label="Switch Language">
+                    <i class="fas fa-globe"></i> EN
+                </button>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="search-bar-section">
+        <div class="container">
+            <form action="search-results.html" class="centered-search-form" role="search">
+                <label for="site-search" class="sr-only">Search</label>
+                <input type="text" id="site-search" name="q" placeholder="Search doctors, treatments, symptoms...">
+                <button type="submit" aria-label="Search"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+    </div>
+
+    <main>
+        <nav aria-label="Breadcrumb" class="breadcrumb-section">
+            <div class="container">
+                <ul class="breadcrumb-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><span class="separator">›</span></li>
+                    <li><a href="ourSpecialist.html">Our Specialists</a></li>
+                    <li><span class="separator">›</span></li>
+                    <li><span class="current" aria-current="page">Doctor Profiles</span></li>
+                </ul>
+            </div>
+        </nav>
+        
+        <section class="section doctor-detail" id="dr-timur">
+            <div class="container">
+                <div class="doctor-profile-card">
+                    <div class="doctor-photo-wrapper">
+                        <img src="/logo/dr2.png" alt="Dr. Timur Smith - Cardiologist" class="doctor-img">
+                    </div>
+                    <div class="doctor-content">
+                        <h1>Dr. Timur Smith</h1>
+                        <p class="specialization">Cardiology Specialist</p>
+                        
+                        <div class="doctor-bio">
+                            <p><strong>Experience:</strong> 15 years in cardiovascular medicine</p>
+                            <p><strong>About:</strong> Dr. Smith focuses on preventive cardiology, patient education, and AI-assisted diagnostics to detect conditions before they become critical. She is dedicated to providing comprehensive cardiac care.</p>
+                            <p class="availability"><i class="fas fa-calendar-alt"></i> <strong>Availability:</strong> Mon–Fri, 9:00–16:00</p>
+                        </div>
+                        
+                        <div class="doctor-stats-grid">
+                            <div class="stat-box">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span class="stat-label">Education</span>
+                                <span class="stat-value">MD, PhD</span>
+                            </div>
+                            <div class="stat-box">
+                                <i class="fas fa-star"></i>
+                                <span class="stat-label">Rating</span>
+                                <span class="stat-value">4.9/5</span>
+                            </div>
+                            <div class="stat-box">
+                                <i class="fas fa-clock"></i>
+                                <span class="stat-label">Wait Time</span>
+                                <span class="stat-value">≤ 15 min</span>
+                            </div>
+                        </div>
+                        
+                        <a href="index.html#contact" class="btn btn-primary btn-lg">
+                            <i class="fas fa-calendar-check"></i> Book Appointment
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section bg-light" id="dr-karim">
+            <div class="container">
+                <div class="doctor-profile-card reverse-layout"> <div class="doctor-photo-wrapper">
+                        <img src="/logo/dr1.jpeg" alt="Dr. Karim - Cardiologist" class="doctor-img">
+                    </div>
+                    <div class="doctor-content">
+                        <h2>Dr. Karim</h2>
+                        <p class="specialization">Interventional Cardiology</p>
+                        
+                        <div class="doctor-bio">
+                            <p><strong>Experience:</strong> 15 years experience</p>
+                            <p><strong>About:</strong> Specialized in cardiovascular diseases and preventive cardiology with advanced diagnostic techniques. His approach focuses on early intervention and comprehensive heart health management.</p>
+                            <p class="availability"><i class="fas fa-calendar-alt"></i> <strong>Availability:</strong> Tue & Thu, 10:00–18:00</p>
+                        </div>
+                        
+                        <div class="doctor-stats-grid">
+                            <div class="stat-box">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span class="stat-label">Education</span>
+                                <span class="stat-value">MD, Cardio</span>
+                            </div>
+                            <div class="stat-box">
+                                <i class="fas fa-star"></i>
+                                <span class="stat-label">Rating</span>
+                                <span class="stat-value">4.7/5</span>
+                            </div>
+                            <div class="stat-box">
+                                <i class="fas fa-clock"></i>
+                                <span class="stat-label">Wait Time</span>
+                                <span class="stat-value">≤ 20 min</span>
+                            </div>
+                        </div>
+                        
+                        <a href="index.html#contact" class="btn btn-primary btn-lg">
+                            <i class="fas fa-calendar-check"></i> Book Appointment
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="dr-alina">
+            <div class="container">
+                <div class="doctor-profile-card">
+                    <div class="doctor-photo-wrapper">
+                        <img src="/logo/dr3.png" alt="Dr. Alina - Pediatrician" class="doctor-img">
+                    </div>
+                    <div class="doctor-content">
+                        <h2>Dr. Alina</h2>
+                        <p class="specialization">Pediatrician</p>
+                        
+                        <div class="doctor-bio">
+                            <p><strong>Experience:</strong> 10 years experience</p>
+                            <p><strong>About:</strong> Dedicated to children's health from infancy through adolescence with compassionate and evidence-based care. She focuses on developmental milestones and parent education.</p>
+                            <p class="availability"><i class="fas fa-calendar-alt"></i> <strong>Availability:</strong> Mon, Wed, Fri, 8:00–15:00</p>
+                        </div>
+                        
+                        <div class="doctor-stats-grid">
+                            <div class="stat-box">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span class="stat-label">Education</span>
+                                <span class="stat-value">MD, Ped.</span>
+                            </div>
+                            <div class="stat-box">
+                                <i class="fas fa-star"></i>
+                                <span class="stat-label">Rating</span>
+                                <span class="stat-value">5.0/5</span>
+                            </div>
+                            <div class="stat-box">
+                                <i class="fas fa-clock"></i>
+                                <span class="stat-label">Wait Time</span>
+                                <span class="stat-value">≤ 10 min</span>
+                            </div>
+                        </div>
+                        
+                        <a href="index.html#contact" class="btn btn-primary btn-lg">
+                            <i class="fas fa-calendar-check"></i> Book Appointment
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <p>Integrated, AI-guided care for a healthier future.</p>
+                    <div class="footer-contact">
+                        <p>Contact us: <a href="mailto:info@mediAipolyclinic.com">info@mediAipolyclinic.com</a></p>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="index.html#challenges">Diagnostics</a></li>
+                        <li><a href="index.html#how-it-works">Specialist Care</a></li>
+                        <li><a href="index.html#value">Preventive Medicine</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <aside class="footer-legal">
+                <p>Medic AI Polyclinic Ltd. Registered in Prague.</p>
+                <p><strong>This is a student project created by Oskar Vanegas, Tsibirinko Yaroslav, Tsibirinko Artem and Sukhov Kiril.</strong></p>
+                <p>&copy; 2025 Medical AI Polyclinic Ltd. All rights reserved.</p>
+            </aside>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+  
+    </script>
+</body>
+</html>

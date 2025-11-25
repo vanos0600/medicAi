@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Medic AI Polyclinic - Student Project. Advanced diagnostics and personalized care.">
+    <title>Medic AI - Comprehensive Health Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <p>We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies. 
+                <a href="#" style="color: var(--primary-color); text-decoration: underline;">Privacy Policy</a></p>
+            </div>
+            <div class="cookie-buttons">
+                <button class="btn btn-primary" id="acceptCookies">Accept</button>
+                <button class="btn btn-secondary" id="manageCookies">Manage Preferences</button>
+            </div>
+        </div>
+    </div>
+
+    <header id="header">
+        <div class="header-container">
+            <a href="index.html" class="logo" aria-label="Medic AI Home">
+                <img src="logo/logo.png" alt="Medic AI Polyclinic Logo">
+            </a>
+
+            <nav id="nav" aria-label="Main Navigation">
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="ourSpecialist.html">Our Specialists</a></li>
+                    <li><a href="doctor-detail.html">Doctors Details</a></li>
+                    <li><a href="patient-portal.html">Patient Portal</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-tools">
+                <button class="language-button" id="switchButton" aria-label="Switch Language">
+                    <i class="fas fa-globe"></i> EN
+                </button>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="search-bar-section">
+        <div class="container">
+            <form action="search-results.html" class="centered-search-form" role="search">
+                <label for="site-search" class="sr-only">Search</label>
+                <input type="text" id="site-search" name="q" placeholder="Search doctors, treatments, symptoms...">
+                <button type="submit" aria-label="Search"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
+    </div>
+
+    <main>
+
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1><span class="highlight-text">HOSPITAL AI</span> WITH COMPREHENSIVE EXPERTS</h1>
+                    <div class="hero-tagline">With the best technology And Specialists.</div>
+                    <p class="hero-subtitle">Hospital AI Polyclinic unites predictive diagnostics, AI-driven specialist coordination, and personalized care protocols in a single platform.</p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">Book Appointment</a>
+                    </div>
+                </div>
+
+                <div class="stats-container">
+                    <div class="stat-item feature-stat"> <span class="stat-number">98%</span>
+                        <span class="stat-label">Accuracy</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">15%</span>
+                        <span class="stat-label">Wait Time</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">95%</span>
+                        <span class="stat-label">Satisfaction</span>
+                    </div>
+                    <div class="stat-item feature-stat"> <span class="stat-number">100+</span>
+                        <span class="stat-label">Specialists</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Support</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">Global</span>
+                        <span class="stat-label">Partners</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">Award</span>
+                        <span class="stat-label">Winning</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">Modern</span>
+                        <span class="stat-label">Tech</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="challenges">
+            <div class="container">
+                <div class="section-title">
+                    <h2>From ambiguity to precision</h2>
+                </div>
+                <div class="problem-solution">
+                    <article class="problem-col">
+                        <h3><i class="fas fa-times cross-icon" aria-hidden="true"></i> The Challenges</h3>
+                        <ul class="problem-list">
+                            <li>Diagnostic errors affect over 12 million adults annually.</li>
+                            <li>Long wait times for specialist referrals.</li>
+                            <li>Patient data is fragmented across legacy systems.</li>
+                            <li>Over-reliance on generic treatment protocols.</li>
+                        </ul>
+                    </article>
+                    
+                    <article class="solution-col">
+                        <h3><i class="fas fa-check check-icon" aria-hidden="true"></i> Our Solution</h3>
+                        <ul class="solution-list">
+                            <li>Unified Data Loop: from consult to aftercare.</li>
+                            <li>Predictive Risk Scoring: AI flags priorities.</li>
+                            <li>Specialist Orchestration: Automated coordination.</li>
+                            <li>Personalized Care Plans based on genetic data.</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section bg-light" id="how-it-works">
+            <div class="container">
+                <div class="section-title">
+                    <h2>How Our AI-Guided Care Works</h2>
+                </div>
+                <div class="process-steps">
+                    <article class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-notes-medical"></i> <div class="step-number">1</div>
+                        </div>
+                        <h3>Data Integration</h3>
+                        <p>Secure aggregation of all relevant patient history.</p>
+                    </article>
+                    
+                    <article class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-microscope"></i> <div class="step-number">2</div>
+                        </div>
+                        <h3>AI Analysis</h3>
+                        <p>Algorithms assess symptoms, labs, and scans.</p>
+                    </article>
+                    
+                    <article class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-user-md"></i> <div class="step-number">3</div>
+                        </div>
+                        <h3>Specialist Match</h3>
+                        <p>Optimal care pathway auto-matched by AI.</p>
+                    </article>
+                    
+                    <article class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-heartbeat"></i> <div class="step-number">4</div>
+                        </div>
+                        <h3>Treatment Plan</h3>
+                        <p>A tailored, easy-to-follow care plan generated.</p>
+                    </article>
+                    
+                    <article class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-chart-area"></i> <div class="step-number">5</div>
+                        </div>
+                        <h3>Monitoring</h3>
+                        <p>Real-time tracking via Patient Portal.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="value">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Real Patient Stories</h2>
+                </div>
+                <div class="stories-container">
+                    <article class="story-card">
+                        <blockquote>
+                            <p>"The AI-driven diagnosis was incredibly fast and accurate. For the first time, I felt like my doctors had a complete picture."</p>
+                        </blockquote>
+                        <footer>
+                            <cite>- Oskar V., Cardiology Patient</cite>
+                            <p class="story-date">Posted: <time datetime="2025-09-15">September 15, 2025</time></p>
+                        </footer>
+                    </article>
+                    
+                    <article class="story-card">
+                        <blockquote>
+                            <p>"Hospital AI proactive approach caught a potential issue before it became serious. Having all my records in one portal made it easy."</p>
+                        </blockquote>
+                        <footer>
+                            <cite>- Kiril S., Preventive Care</cite>
+                            <p class="story-date">Posted: <time datetime="2025-10-02">October 2, 2025</time></p>
+                        </footer>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="who-its-for">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Specialists</h2>
+                </div>
+                <div class="audience-cards">
+                    <div class="audience-card">
+                        <h3>Primary Care Physicians</h3>
+                        <p>Empower GPs with AI insights for faster, evidence-based patient assessment.</p>
+                    </div>
+                    <div class="audience-card">
+                        <h3>Medical Specialists</h3>
+                        <p>Coordinate complex cases and access consolidated patient data instantly.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="why-astorre">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Why Hospital AI Stands Out</h2>
+                    <p>Other clinics treat symptoms. Medical AI diagnoses the future.</p>
+                </div>
+                <div class="table-responsive">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Service Feature</th>
+                                <th>Traditional Clinic</th>
+                                <th>Specialist Hospital</th>
+                                <th>Medic AI Polyclinic</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Personalized Medicine</td>
+                                <td><i class="fas fa-times cross-icon" aria-hidden="true"></i></td>
+                                <td><i class="fas fa-adjust partial-icon" aria-hidden="true"></i></td>
+                                <td><i class="fas fa-check check-icon" aria-hidden="true"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Predictive Risk Scoring</td>
+                                <td><i class="fas fa-times cross-icon" aria-hidden="true"></i></td>
+                                <td><i class="fas fa-times cross-icon" aria-hidden="true"></i></td>
+                                <td><i class="fas fa-check check-icon" aria-hidden="true"></i></td>
+                            </tr>
+                            <tr>
+                                <td>Unified Patient Record</td>
+                                <td><i class="fas fa-times cross-icon" aria-hidden="true"></i></td>
+                                <td><i class="fas fa-adjust partial-icon" aria-hidden="true"></i></td>
+                                <td><i class="fas fa-check check-icon" aria-hidden="true"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="demo-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>See Precision Medicine in Action</h2>
+                    <p>Hospital AI Polyclinic turns fragmented data into a clear path to health.</p>
+                </div>
+                <div class="cta-wrapper">
+                    <a href="#contact" class="btn btn-primary">Book an Appointment</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="founder-story">
+                    <div class="founder-image">
+                        <div class="image-wrapper">
+                             <img src="logo/Ceo.jpg" alt="Dr. Artem Tsibirinko, CEO" class="responsive-img">
+                        </div>
+                    </div>
+                    <div class="founder-content">
+                        <h2>Our Vision</h2>
+                        <p>Dr. Artem Tsibirinko, a leading diagnostic expert, grew frustrated with fragmented health systems. Hospital AI Polyclinic is his answer—a model of care where specialist expertise is amplified by AI-driven precision.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="contact">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Start Your Health Journey</h2>
+                </div>
+                <div class="contact-container">
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="purpose">Reason for Contact</label>
+                                <select id="purpose" name="purpose" required>
+                                    <option value="">Select an option</option>
+                                    <option value="appointment">Book an Appointment</option>
+                                    <option value="specialist">Consult a Specialist</option>
+                                    <option value="other">General Inquiry</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary full-width">Schedule Consultation</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <p>Integrated, AI-guided care for a healthier future.</p>
+                    <div class="footer-contact">
+                        <p>Contact us: <a href="mailto:info@mediAipolyclinic.com">info@HospitalAI.com</a></p>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#challenges">Diagnostics</a></li>
+                        <li><a href="#how-it-works">Specialist Care</a></li>
+                        <li><a href="#value">Preventive Medicine</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <aside class="footer-legal">
+                <p>Medic AI Polyclinic Ltd. Registered in Prague.</p>
+                <p><strong>This is a student project created by Oskar Vanegas, Tsibirinko Yaroslav, Tsibirinko Artem and Sukhov Kiril.</strong></p>
+                <p>&copy; 2025 Hospital AI Polyclinic Ltd. All rights reserved.</p>
+            </aside>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    
+   
+    </script>
+</body>
+</html>
